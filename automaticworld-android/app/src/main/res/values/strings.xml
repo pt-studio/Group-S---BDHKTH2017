@@ -1,0 +1,77 @@
+<resources>
+    <string name="app_name">Smart Pot</string>
+
+    <!--Login Screen-->
+    <string name="login_screen_title">SMART POT</string>
+    <string name="login_username_title"><b>Tên đăng nhập</b></string>
+    <string name="login_password_title"><b>Mật khẩu</b> </string>
+    <string name="login_button_login_title">ĐĂNG NHẬP</string>
+    <string name="login_button_forgot_title">Quên mật khẩu?</string>
+
+    <!--Register Screen-->
+    <string name="register_screen_title">TẠO TÀI KHOẢN</string>
+    <string name="register_username_title">Tên đăng nhập</string>
+    <string name="register_email_title"><b>Email</b></string>
+    <string name="register_phone_title">Số điện thoại</string>
+    <string name="register_password_title">Mật khẩu</string>
+    <string name="register_password_confirm_title">Xác nhận mật khẩu</string>
+    <string name="register_button_submit_title">ĐĂNG KÍ</string>
+
+    <!--Forgot password Screen-->
+    <string name="forgot_pass_screen_title">LẤY LẠI MẬT KHẨU</string>
+    <string name="forgot_pass_label">Nhập email để lấy lại mật khẩu</string>
+    <string name="forgot_pass_email_tv">Email</string>
+    <string name="forgot_pass_button_submit_title">GỬI</string>
+    <string name="forgot_pass_note"><b>Bạn hãy kiểm tra email để nhận lại mật khẩu mới.\nNếu chưa nhận được email xin vui lòng nhấn gửi lại.</b></string>
+
+    <!--Change password Screen-->
+    <string name="change_pass_screen_title">ĐỐI MẬT KHẨU</string>
+    <string name="change_pass_old_pass_title">Mật khẩu cũ</string>
+    <string name="change_pass_new_pass_title">Mật khẩu mới</string>
+    <string name="change_pass_confirm_pass_title">Xác nhận mật khẩu mới</string>
+    <string name="change_pass_button_submit_title">ĐỔI MẬT KHẨU</string>
+
+    <!--Change password Success Screen-->
+    <string name="change_pass_success_title">Đổi mật khẩu thành công</string>
+
+    <!--Add tree Screen-->
+    <string name="add_tree_screen_title">Thêm cây</string>
+    <string name="add_tree_tree_name_title">Tên cây</string>
+    <string name="add_tree_moisture_title">Độ ẩm an toàn (0 &#8211; 100)</string>
+    <string name="add_tree_device_title">Chọn loại thiết bị</string>
+    <string name="add_tree_button_submit_title">TẠO</string>
+
+    <!--Update tree Screen-->
+    <string name="update_tree_change_user_title">Đổi người sở hữu</string>
+    <string name="update_tree_change_user_input_title">Nhập tên tài khoản</string>
+    <string name="update_tree_screen_title">Update</string>
+    <string name="update_tree_button_update_title">Update</string>
+    <string name="update_tree_button_turnoff_title">Tắt theo dõi</string>
+
+    <!--Detail tree Screen-->
+    <string name="detail_safe_moisture">Độ ẩm an toàn: </string>
+    <string name="detail_current_moisture">Độ ẩm hiện tại: </string>
+    <string name="detail_device_state">Tình trạng thiết bị: </string>
+
+    <!--Store Screen-->
+    <string name="store_screen_title">Kho thiết bị</string>
+    <string name="store_smart_title">Chậu cây thông minh</string>
+    <string name="store_auto_title">Thiết bị tự động</string>
+    <string name="store_active_state">Đang hoạt động</string>
+    <string name="store_inactive_state">Không hoạt động</string>
+
+    <!--Common texts-->
+    <string name="search_text_hint">Nhập tên cây</string>
+
+    <!--Dialog texts-->
+    <string name="dialog_update_inform_text">Hệ thống sẽ tạm thời tắt thiết bị theo dõi.\n
+                                            Bạn có thể kích hoạt lại bất cứ lúc nào.</string>
+    <string name="dialog_button_confirm_title">Xác nhận</string>
+
+    <!--Device dropdown-->
+    <string-array name="device_dropdown_items">
+        <item>Chậu cây thông minh</item>
+        <item>Thiết bị tự tưới</item>
+    </string-array>
+
+</resources>

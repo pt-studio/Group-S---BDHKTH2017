@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#2BB96A</color>
+    <color name="colorPrimaryDark">#1AA658</color>
+    <color name="colorAccent">#5CDC95</color>
+
+
+    <!--Common-->
+    <color name="colorMainBackground">#2BB96A</color>
+    <color name="colorButtonLogin">#527FFF</color>
+    <color name="colorRegularButtons">#00A6FF</color>
+    <color name="common_gray_bg_color">#F7F7F8</color>
+    <color name="light_blue_bg_color">#99c3f3</color>
+    <color name="white_100">#ffffff</color>
+    <color name="black_100">#000000</color>
+    <color name="gray_border_color">#6D6E70</color>
+    <color name="dark_gray_text_color">#404041</color>
+    <color name="dark_blue_normal">#046cde</color>
+    <color name="dark_blue_pressed">#0053af</color>
+    <color name="transpanrent">#00000000</color>
+    <color name="transpanrent_blur">#8e000000</color>
+    <color name="toolbar_bg_normal">#FF0000</color>
+    <color name="toolbar_bg_pressed">#ef0000</color>
+
+
+    <!--Text-->
+    <color name="gray_text_color">#6D6E70</color>
+    <color name="red_text_color">#EC1C24</color>
+    <color name="gray_text_hint_color">#A6A8AB</color>
+    <color name="divider_color">#999999</color>
+
+
+    <color name="welcome_change_data_button_color">#99c3f3</color>
+    <color name="tab_bg_color_selected">#ECECEC</color>
+
+    <color name="notify_mypage_info_change_bg_color">#da000000</color>
+    <color name="dialog_activity_bg_color">#221F1F</color>
+    <color name="default_bg_color">#FFFFFF</color>
+    <color name="card_case_setting_footer_bg_color">#b1000000</color>
+
+    <!-- Custom button -->
+    <color name="custom_btn_bg_normal">#ffffff</color>
+    <color name="custom_btn_bg_pressed">#ededed</color>
+</resources>

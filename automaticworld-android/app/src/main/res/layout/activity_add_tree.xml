@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorMainBackground"
+    tools:context="com.example.andrejlee.smartpotui.ui.activities.add_tree.AddTreeActivity">
+
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/add_tree_screen_title"
+        android:textColor="@color/white_100"
+        android:textSize="@dimen/font_30"
+        android:textStyle="bold"
+        android:textAlignment="center"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="@dimen/margin_20"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginRight="8dp"
+        app:layout_constraintRight_toRightOf="parent"
+        android:id="@+id/textView6"
+        fontPath="fonts/FallingSkyBd.otf"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp" />
+
+    <EditText
+        android:id="@+id/et_tree_name_update"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/add_tree_tree_name_title"
+        android:textColorHint="@color/white_100"
+        android:textColor="@color/white_100"
+        android:textStyle="bold"
+        android:textSize="@dimen/font_20"
+        android:layout_marginTop="@dimen/margin_40"
+        app:layout_constraintTop_toBottomOf="@+id/textView6"
+        android:layout_marginLeft="@dimen/margin_10"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginRight="@dimen/margin_10"
+        app:layout_constraintRight_toRightOf="parent"
+        fontPath="fonts/FallingSkyBd.otf"
+        android:layout_marginStart="@dimen/margin_10"
+        android:layout_marginEnd="@dimen/margin_10" />
+    
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/add_tree_moisture_title"
+        android:textColor="@color/white_100"
+        android:textSize="@dimen/font_20"
+        android:textStyle="bold"
+        android:layout_marginTop="@dimen/margin_25"
+        app:layout_constraintTop_toBottomOf="@+id/et_tree_name_update"
+        android:layout_marginLeft="@dimen/margin_10"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginRight="@dimen/margin_10"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        fontPath="fonts/FallingSkyBd.otf"
+        android:id="@+id/textView7"
+        android:layout_marginStart="@dimen/margin_10"
+        android:layout_marginEnd="@dimen/margin_10" />
+
+    <TextView
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:background="@drawable/rounded_border_btn"
+        android:gravity="center"
+        android:text="50"
+        android:textColor="@color/black_100"
+        android:textSize="@dimen/font_26"
+        android:textStyle="bold"
+        android:layout_marginTop="@dimen/margin_40"
+        app:layout_constraintTop_toBottomOf="@+id/textView7"
+        android:layout_marginLeft="@dimen/margin_08"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:id="@+id/tv_progress_value_update"
+        android:layout_marginStart="@dimen/margin_08" />
+
+    <SeekBar
+        android:id="@+id/sb_moisture_update"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:progress="@integer/seek_bar_default"
+        android:progressDrawable="@drawable/seekbar_style"
+        android:thumb="@drawable/custom_thumb"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toRightOf="@+id/tv_progress_value_update"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintTop_toTopOf="@+id/tv_progress_value_update"
+        android:layout_marginTop="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp" />
+
+    <Spinner
+        android:id="@+id/spinner_device"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:prompt="@string/add_tree_device_title"
+        android:entries="@array/device_dropdown_items"
+        android:gravity="center"
+        android:layout_marginTop="@dimen/margin_25"
+        app:layout_constraintTop_toBottomOf="@+id/tv_progress_value_update"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginRight="8dp"
+        app:layout_constraintRight_toRightOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_create_tree"
+        android:layout_width="180dp"
+        android:layout_height="50dp"
+        android:text="@string/add_tree_button_submit_title"
+        android:textColor="@color/white_100"
+        android:textSize="@dimen/font_20"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:layout_marginTop="@dimen/margin_20"
+        app:layout_constraintTop_toBottomOf="@+id/spinner_device"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginRight="8dp"
+        app:layout_constraintRight_toRightOf="parent"
+        fontPath="fonts/FallingSkyBd.otf"/>
+
+</android.support.constraint.ConstraintLayout>

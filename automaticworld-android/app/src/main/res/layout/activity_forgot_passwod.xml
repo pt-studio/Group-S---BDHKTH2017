@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorMainBackground"
+    tools:context="com.example.andrejlee.smartpotui.ui.activities.forgot_password.ForgotPasswordActivity">
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/logo_smartpot"
+        android:layout_marginRight="8dp"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="8dp"
+        android:id="@+id/imageView2" />
+
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/forgot_pass_screen_title"
+        android:textSize="@dimen/font_34"
+        android:textColor="@color/white_100"
+        android:textStyle="bold"
+        android:textAlignment="center"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginTop="@dimen/margin_40"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintTop_toBottomOf="@+id/imageView2"
+        android:id="@+id/textView2"
+        fontPath="fonts/FallingSkyBd.otf"/>
+
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/forgot_pass_label"
+        android:textSize="@dimen/font_20"
+        android:textColor="@color/white_100"
+        android:textAlignment="center"
+        android:layout_marginTop="@dimen/margin_30"
+        app:layout_constraintTop_toBottomOf="@+id/textView2"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:id="@+id/textView3"
+        fontPath="fonts/FallingSkyBd.otf"/>
+
+    <EditText
+        android:id="@+id/tv_forgot_email_label"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/forgot_pass_email_tv"
+        android:textColorHint="@color/white_100"
+        android:textSize="@dimen/font_20"
+        android:layout_marginTop="@dimen/margin_30"
+        app:layout_constraintTop_toBottomOf="@+id/textView3"
+        android:layout_marginLeft="@dimen/margin_10"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginRight="@dimen/margin_10"
+        app:layout_constraintRight_toRightOf="parent"
+        fontPath="fonts/FallingSkyBd.otf"/>
+
+    <TextView
+        android:layout_width="180dp"
+        android:layout_height="40dp"
+        android:text="@string/forgot_pass_button_submit_title"
+        android:textColor="@color/white_100"
+        android:textAlignment="center"
+        android:gravity="center_vertical"
+        android:textSize="@dimen/font_20"
+        android:layout_marginTop="@dimen/margin_20"
+        app:layout_constraintTop_toBottomOf="@+id/tv_forgot_email_label"
+        android:layout_marginLeft="@dimen/margin_08"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginRight="@dimen/margin_08"
+        app:layout_constraintRight_toRightOf="parent"
+        android:id="@+id/textView4"
+        fontPath="fonts/FallingSkyBd.otf"/>
+
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/forgot_pass_note"
+        android:textAlignment="textStart"
+        android:gravity="start"
+        android:textColor="@color/white_100"
+        android:textSize="@dimen/font_16"
+        android:layout_marginTop="@dimen/margin_20"
+        app:layout_constraintTop_toBottomOf="@+id/textView4"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginRight="8dp"
+        app:layout_constraintRight_toRightOf="parent"
+        fontPath="fonts/FallingSkyBd.otf"/>
+
+</android.support.constraint.ConstraintLayout>

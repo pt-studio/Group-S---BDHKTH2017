@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.andrejlee.smartpotui">
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity
+            android:name=".ui.activities.welcome.WelcomeActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".ui.activities.forgot_password.ForgotPasswordActivity"
+            android:screenOrientation="portrait" />
+        <activity android:name=".ui.activities.change_password.ChangePasswordActivity" />
+        <activity android:name=".ui.activities.change_password_success.ChangePasswordSuccessActivity" />
+        <activity android:name=".ui.activities.add_tree.AddTreeActivity" />
+        <activity android:name=".ui.activities.update_tree.UpdateTreeActivity" />
+        <activity android:name=".ui.activities.home.HomeActivity" />
+        <activity android:name=".ui.activities.detail.DetailTreeActivity"></activity>
+    </application>
+
+</manifest>
