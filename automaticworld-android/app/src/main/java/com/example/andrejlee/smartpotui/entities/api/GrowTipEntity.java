@@ -2,10 +2,6 @@ package com.example.andrejlee.smartpotui.entities.api;
 
 import com.google.gson.annotations.SerializedName;
 
-/**
- * Created by Andrej Lee on 11/17/2017.
- */
-
 public class GrowTipEntity {
 
     @SerializedName("id")
@@ -16,6 +12,7 @@ public class GrowTipEntity {
     private String mImage;
     @SerializedName("content")
     private String mContent;
+    private int imageId;
 
     public String getTitle() {
         return mTitle;
@@ -47,5 +44,13 @@ public class GrowTipEntity {
 
     public void setId(int mId) {
         this.mId = mId;
+    }
+
+    public int getImageId() {
+        return imageId;
+    }
+
+    public void setImageId(int imageId) {
+        this.imageId = imageId;
     }
 }

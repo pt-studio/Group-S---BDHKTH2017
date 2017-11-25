@@ -1,15 +1,16 @@
 package com.example.andrejlee.smartpotui.application;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.multidex.MultiDexApplication;
 
 import com.blankj.utilcode.util.Utils;
 import com.example.andrejlee.smartpotui.R;
 import com.example.andrejlee.smartpotui.common.SmartPotSettings;
 import com.example.andrejlee.smartpotui.network.SmartPotNetworkManager;
+import com.example.andrejlee.smartpotui.services.RegistrationService;
 
 import uk.co.chrisjenx.calligraphy.CalligraphyConfig;
-
 
 public class MyApplication extends MultiDexApplication {
 
@@ -36,9 +37,14 @@ public class MyApplication extends MultiDexApplication {
                 .setFontAttrId(R.attr.fontPath)
                 .build()
         );
+        Intent i = new Intent(this, RegistrationService.class);
+        startService(i);
         SmartPotSettings.init(this);
+//        TODO INIT FAKE USER
+        SmartPotSettings.initUser();
         SmartPotNetworkManager.init();
     }
+
 
     //    PRIVATE METHODS
 //    private void initRealm() {

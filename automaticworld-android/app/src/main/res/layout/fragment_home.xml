@@ -7,21 +7,23 @@
         android:background="@color/colorMainBackground"
         tools:context="com.example.andrejlee.smartpotui.ui.activities.home.HomeActivity">
 
-        <GridView
+        <android.support.v7.widget.RecyclerView
             android:id="@+id/gv_list_tree"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
-            android:stretchMode="columnWidth"
             android:gravity="center"
-            android:numColumns="3"
+            android:clickable="true"
+            android:focusableInTouchMode="true"
+            android:focusable="true"
             android:listSelector="@drawable/list_selector"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintHorizontal_bias="0.0">
-        </GridView>
+
+        </android.support.v7.widget.RecyclerView>
 
         <android.support.design.widget.FloatingActionButton
             android:id="@+id/btn_floating_action"

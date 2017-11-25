@@ -23,6 +23,7 @@ import com.example.andrejlee.smartpotui.ui.fragments.home.HomeFragmentPresenter;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 import butterknife.OnFocusChange;
 
 /**
@@ -136,6 +137,16 @@ public class AddTreeFragment extends BaseFragment implements AddTreeFragmentView
             KeyboardUtils.hideSoftInput(v);
         } else {
             KeyboardUtils.showSoftInput(getActivity());
+        }
+    }
+
+    @OnClick(R.id.tv_create_tree)
+    public void onClick(View v){
+        if (!mTreeName.getText().toString().equals(Constants.EMPTY_STRING) && !mProgessValue.getText().toString().equals(Constants.EMPTY_STRING)){
+            int deviceType = (spinner.getSelectedItem().toString().equals(getString(R.string.store_smart_title)))? 1 : 2;
+            mPresenter.addTree(mTreeName.getText().toString(), Integer.parseInt(mProgessValue.getText().toString()), deviceType);
+        } else {
+            showDialogMessageAPI(getString(R.string.missing_value));
         }
     }
 }

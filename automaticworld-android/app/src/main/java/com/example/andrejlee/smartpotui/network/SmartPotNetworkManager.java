@@ -1,26 +1,18 @@
 package com.example.andrejlee.smartpotui.network;
 
-import com.example.andrejlee.smartpotui.application.MyApplication;
-import com.example.andrejlee.smartpotui.constants.AppConfig;
 import com.example.andrejlee.smartpotui.constants.Constants;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import com.onetech.core.utils.DeviceUtils;
 
 import java.util.concurrent.TimeUnit;
 
 import io.reactivex.schedulers.Schedulers;
-
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
-
-/**
- * Created by HienNguyen on 7/18/2017.
- */
 
 public class SmartPotNetworkManager {
 

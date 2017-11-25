@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="@dimen/margin_10"
+    android:background="@color/white_100">
+
+    <TextView
+        android:id="@+id/tv_noti_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Title"
+        android:padding="@dimen/margin_05"
+        android:textColor="@color/black_100"
+        android:textSize="@dimen/font_18"
+        android:textStyle="bold"
+        android:gravity="center"
+        fontPath="fonts/FallingSkyBd.otf"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/divider_color">
+    </View>
+
+    <TextView
+        android:id="@+id/tv_noti_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Content"
+        android:paddingRight="@dimen/margin_10"
+        android:paddingLeft="@dimen/margin_10"
+        android:paddingTop="@dimen/margin_10"
+        android:paddingBottom="@dimen/margin_10"
+        android:textColor="@color/black_100"
+        android:textSize="@dimen/font_16"
+        android:gravity="center"
+        fontPath="fonts/FallingSkyBd.otf"/>
+</LinearLayout>

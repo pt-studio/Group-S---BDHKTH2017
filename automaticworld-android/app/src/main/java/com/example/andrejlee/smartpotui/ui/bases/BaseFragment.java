@@ -3,6 +3,7 @@ package com.example.andrejlee.smartpotui.ui.bases;
 import android.app.AlertDialog;
 import android.view.View;
 
+import com.blankj.utilcode.util.KeyboardUtils;
 import com.example.andrejlee.smartpotui.ui.dialogs.CommonDialogUtil;
 import com.onetech.core.base.permission.FragmentPermissionManager;
 
@@ -20,6 +21,7 @@ public class BaseFragment extends FragmentPermissionManager {
     @Override
     public void onDestroyView() {
         super.onDestroyView();
+        KeyboardUtils.hideSoftInput(getActivity());
         if (unbinder != null) {
             unbinder.unbind();
         }

@@ -14,7 +14,9 @@ import android.widget.TextView;
 
 import com.blankj.utilcode.util.KeyboardUtils;
 import com.example.andrejlee.smartpotui.R;
+import com.example.andrejlee.smartpotui.common.SmartPotSettings;
 import com.example.andrejlee.smartpotui.constants.Constants;
+import com.example.andrejlee.smartpotui.services.RegistrationService;
 import com.example.andrejlee.smartpotui.ui.activities.forgot_password.ForgotPasswordActivity;
 import com.example.andrejlee.smartpotui.ui.activities.home.HomeActivity;
 import com.example.andrejlee.smartpotui.ui.bases.BaseDefaultActivity;
@@ -59,9 +61,20 @@ public class WelcomeActivity extends BaseDefaultActivity implements WelcomeActiv
         setMainContainer(R.layout.activity_welcome);
         showToolbar(false);
         ButterKnife.bind(this);
+        initViews();
         initPresenter();
         initAnimation();
         startAnimation();
+        initServices();
+    }
+
+    private void initServices(){
+
+    }
+
+    private void initViews() {
+        mUsernameField.setText(SmartPotSettings.getUser().getUsername());
+        mPasswordField.setText(SmartPotSettings.getUser().getPassword());
     }
 
     private void initAnimation() {
@@ -138,7 +151,18 @@ public class WelcomeActivity extends BaseDefaultActivity implements WelcomeActiv
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.tv_login:
-                HomeActivity.start(this);
+                if (mUsernameField.getText() != null &&
+                        !mUsernameField.getText().toString().equals(Constants.EMPTY_STRING) &&
+                        mPasswordField.getText() != null &&
+                        !mPasswordField.getText().toString().equals(Constants.EMPTY_STRING)){
+                    if (SmartPotSettings.checkValidUser(mUsernameField.getText(), mPasswordField.getText())){
+                        HomeActivity.start(this);
+                    } else {
+                        showDialogMessageAPI(getString(R.string.invalid_user_string));
+                    }
+                } else {
+                    showDialogMessageAPI(getString(R.string.missing_value));
+                }
                 break;
             case R.id.tv_forgot:
                 ForgotPasswordActivity.start(this);

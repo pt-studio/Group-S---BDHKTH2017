@@ -1,0 +1,122 @@
+<!DOCTYPE HTML>
+<html>
+<head>  
+<script>
+window.onload = function () {
+
+var chart = new CanvasJS.Chart("chartContainer", {
+	animationEnabled: true,
+	title:{
+		text: "Bieu Do Do Am Trong 24 Tieng"
+	},
+	axisY: {
+		title: "Do Am (%)",
+		includeZero: true
+	},
+	axisX: {
+		title : "Thoi gian(h)"
+	},
+	data: [{
+		type: "line",
+		color: "#0000ff",
+		dataPoints: [
+			{ x: 0, y: 50 },
+			{ x: 2, y: 48 },
+			{ x: 4, y: 46 },
+			{ x: 6, y: 44 },
+			{ x: 8, y: 60 },
+			{ x: 10, y: 60 },
+			{ x: 12, y: 58 },
+			{ x: 14, y: 56 },
+			{ x: 16, y: 54 },
+			{ x: 18, y: 50 },
+			{ x: 20, y: 40 },
+			{ x: 22, y: 30 },
+			{ x: 24, y: 60 }
+		]
+	}]
+});
+chart.render();
+
+var chart2 = new CanvasJS.Chart("chartContainer2", {
+	animationEnabled: true,
+	title:{
+		text: "Bieu Do Nhiet Do Trong 24 Tieng"
+	},
+	axisY: {
+		title: "Nhiet Do (Censius)",
+		includeZero: true	
+	},
+	axisX: {
+		title : "Thoi gian(h)"
+	},
+	data: [{
+		type: "line",
+		color: "#F08080",
+		dataPoints: [
+			{ x: 0, y: 20 },
+			{ x: 2, y: 22 },
+			{ x: 4, y: 24 },
+			{ x: 6, y: 26 },
+			{ x: 8, y: 24 },
+			{ x: 10, y: 30 },
+			{ x: 12, y: 28 },
+			{ x: 14, y: 28 },
+			{ x: 16, y: 27 },
+			{ x: 18, y: 26 },
+			{ x: 20, y: 24 },
+			{ x: 22, y: 23 },
+			{ x: 24, y: 22 }
+		]
+	}]
+});
+chart2.render();
+
+var chart3 = new CanvasJS.Chart("chartContainer3", {
+	animationEnabled: true,
+	title:{
+		text: "Bieu Do Cuong Do Anh Sang Trong 24 Tieng"
+	},
+	axisY: {
+		title: "Cuong Do Anh Sang (lux)",
+		includeZero: true
+	},
+	axisX: {
+		title : "Thoi gian(h)"
+	},
+	data: [{
+		type: "line",
+		color: "#ffff00",
+		dataPoints: [
+			{ x: 0, y: 1000 },
+			{ x: 2, y: 1100 },
+			{ x: 4, y: 1200 },
+			{ x: 6, y: 1100 },
+			{ x: 8, y: 1000 },
+			{ x: 10, y: 1050 },
+			{ x: 12, y: 1005 },
+			{ x: 14, y: 1234 },
+			{ x: 16, y: 1200 },
+			{ x: 18, y: 1100 },
+			{ x: 20, y: 1050 },
+			{ x: 22, y: 1000 },
+			{ x: 24, y: 980 }
+		]
+	}]
+});
+chart3.render();
+}
+</script>
+</head>
+<body>
+<div id="chartContainer" style="height: 300px; width: 100%;">
+</div><br/>
+<p>Ngưỡng an toàn: (50, 70)</p>
+<div id="chartContainer2" style="height: 300px; width: 100%;"></div><br/>
+<p>Ngưỡng an toàn: (20, 30)</p>
+<div id="chartContainer3" style="height: 300px; width: 100%;"></div><br/>
+<p>Ngưỡng an toàn: (1000, 1200)</p>
+
+<script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+</body>
+</html>

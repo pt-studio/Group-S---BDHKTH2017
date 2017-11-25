@@ -1,31 +1,36 @@
 package com.example.andrejlee.smartpotui.ui.fragments.home;
 
-import android.util.Log;
-
+import com.example.andrejlee.smartpotui.R;
 import com.example.andrejlee.smartpotui.common.SmartPotFacade;
 import com.example.andrejlee.smartpotui.entities.api.TreeEntity;
 import com.example.andrejlee.smartpotui.ui.bases.BasePresenter;
 
-import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
-
-/**
- * Created by Andrej Lee on 11/14/2017.
- */
 
 public class HomeFragmentPresenter extends BasePresenter<HomeFragmentView> {
 
-    public void getAllDevice(){
-        List<TreeEntity> tempList = new ArrayList<>();
-
+    public void getAllDevice() {
         SmartPotFacade.getInstance().getAllDevices()
                 .subscribe(returnValue -> {
-                    SmartPotFacade.getInstance().getDeviceById(returnValue.get(0).getId())
-                            .subscribe(value -> {
-                                Log.d("Temp", String.valueOf(value.getStatus()));
-                            });
+                    if (mMvpView != null) {
+                        mMvpView.loadDataToGridView(filterWorkingTrees(returnValue));
+                    }
                 }, throwable -> {
-                    throwable.printStackTrace();
+                    if (mMvpView != null) {
+                        mMvpView.showDialogMessageAPI(throwable.toString());
+                    }
                 });
+    }
+
+    private List<TreeEntity> filterWorkingTrees(List<TreeEntity> data) {
+        Iterator<TreeEntity> iterator = data.iterator();
+        while (iterator.hasNext()) {
+            TreeEntity currentTree = iterator.next();
+            if (!currentTree.getStatus().equals(mMvpView.getCurrentContext().getString(R.string.status_working_en))) {
+                iterator.remove();
+            }
+        }
+        return data;
     }
 }

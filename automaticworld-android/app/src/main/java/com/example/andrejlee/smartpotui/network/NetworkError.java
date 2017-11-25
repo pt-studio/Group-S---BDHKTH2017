@@ -5,9 +5,6 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.util.Log;
 
-/**
- * Created by ThienLee on 17-Apr-17.
- */
 
 public class NetworkError extends Throwable {
     private static final String TAG = NetworkError.class.getSimpleName();

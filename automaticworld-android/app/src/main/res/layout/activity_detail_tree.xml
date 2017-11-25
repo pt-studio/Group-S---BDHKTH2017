@@ -8,6 +8,17 @@
     android:id="@+id/cl_detail_tree"
     tools:context="com.example.andrejlee.smartpotui.ui.activities.detail.DetailTreeActivity">
 
+    <ImageView
+        android:id="@+id/iv_back_tree_detail"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:padding="10dp"
+        android:src="@drawable/ic_left_arrow"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="8dp"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintLeft_toLeftOf="parent" />
+
     <TextView
         android:id="@+id/tv_screen_tree_name"
         android:layout_width="0dp"
@@ -18,7 +29,7 @@
         android:textStyle="bold"
         android:textColor="@color/white_100"
         app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="@dimen/margin_20"
+        android:layout_marginTop="@dimen/margin_40"
         android:layout_marginLeft="@dimen/margin_08"
         app:layout_constraintLeft_toLeftOf="parent"
         android:layout_marginRight="@dimen/margin_08"
@@ -27,7 +38,7 @@
     <TextView
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="@string/detail_safe_moisture"
+        android:text="@string/detail_safe_moisture_upper"
         android:textColor="@color/white_100"
         android:textStyle="bold"
         android:textSize="@dimen/font_20"
@@ -39,16 +50,48 @@
         fontPath="fonts/FallingSkyBd.otf"/>
     
     <TextView
-        android:id="@+id/tv_safe_moisture"
+        android:id="@+id/tv_safe_moisture_upper"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text=""
         android:textSize="@dimen/font_20"
         android:textColor="@color/white_100"
         app:layout_constraintLeft_toRightOf="@+id/textView9"
-        android:layout_marginLeft="8dp"
+        android:layout_marginLeft="@dimen/margin_08"
+        android:paddingLeft="@dimen/margin_08"
+        android:paddingRight="@dimen/margin_08"
         app:layout_constraintTop_toTopOf="@+id/textView9"
+        fontPath="fonts/FallingSkyBd.otf"
+        android:layout_marginTop="0dp" />
+
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/detail_safe_moisture_lower"
+        android:textColor="@color/white_100"
+        android:textStyle="bold"
+        android:textSize="@dimen/font_20"
+        android:layout_marginTop="@dimen/margin_20"
+        app:layout_constraintTop_toBottomOf="@+id/textView9"
+        android:layout_marginLeft="@dimen/margin_08"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:id="@+id/textView13"
         fontPath="fonts/FallingSkyBd.otf"/>
+
+    <TextView
+        android:id="@+id/tv_safe_moisture_lower"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:textSize="@dimen/font_20"
+        android:textColor="@color/white_100"
+        app:layout_constraintLeft_toRightOf="@+id/textView13"
+        android:layout_marginLeft="@dimen/margin_08"
+        android:paddingLeft="@dimen/margin_08"
+        android:paddingRight="@dimen/margin_08"
+        app:layout_constraintTop_toTopOf="@+id/textView13"
+        fontPath="fonts/FallingSkyBd.otf"
+        android:layout_marginTop="0dp" />
 
     <TextView
         android:layout_width="0dp"
@@ -57,10 +100,10 @@
         android:textStyle="bold"
         android:textColor="@color/white_100"
         android:textSize="@dimen/font_20"
-        android:layout_marginLeft="8dp"
+        android:layout_marginLeft="@dimen/margin_08"
         app:layout_constraintLeft_toLeftOf="parent"
         android:layout_marginTop="@dimen/margin_20"
-        app:layout_constraintTop_toBottomOf="@+id/textView9"
+        app:layout_constraintTop_toBottomOf="@+id/textView13"
         android:id="@+id/textView10"
         fontPath="fonts/FallingSkyBd.otf"/>
 
@@ -72,7 +115,9 @@
         android:textSize="@dimen/font_20"
         android:textColor="@color/white_100"
         app:layout_constraintLeft_toRightOf="@+id/textView10"
-        android:layout_marginLeft="1dp"
+        android:layout_marginLeft="@dimen/margin_08"
+        android:paddingLeft="@dimen/margin_08"
+        android:paddingRight="@dimen/margin_08"
         app:layout_constraintTop_toTopOf="@+id/textView10"
         fontPath="fonts/FallingSkyBd.otf"
         android:layout_marginTop="0dp" />
@@ -85,6 +130,7 @@
         android:textStyle="bold"
         android:textColor="@color/white_100"
         android:layout_marginLeft="8dp"
+
         app:layout_constraintLeft_toLeftOf="parent"
         android:layout_marginTop="@dimen/margin_20"
         app:layout_constraintTop_toBottomOf="@+id/textView10"
@@ -102,18 +148,23 @@
         app:layout_constraintTop_toTopOf="@+id/textView11"
         app:layout_constraintLeft_toRightOf="@+id/textView11"
         android:layout_marginLeft="8dp"
+        android:paddingLeft="@dimen/margin_08"
+        android:paddingRight="@dimen/margin_08"
         fontPath="fonts/FallingSkyBd.otf"/>
 
     <com.github.mikephil.charting.charts.LineChart
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         android:layout_marginTop="@dimen/margin_20"
         app:layout_constraintTop_toBottomOf="@+id/textView11"
         android:layout_marginLeft="8dp"
         app:layout_constraintLeft_toLeftOf="parent"
         android:layout_marginRight="8dp"
         app:layout_constraintRight_toRightOf="parent"
-        android:id="@+id/lineChart">
+        android:id="@+id/lineChart"
+        app:layout_constraintHorizontal_bias="0.0"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/tv_edit_tree">
 
     </com.github.mikephil.charting.charts.LineChart>
 
@@ -126,12 +177,12 @@
         android:textSize="@dimen/font_20"
         android:textStyle="bold"
         android:gravity="center"
-        android:layout_marginTop="@dimen/margin_10"
-        app:layout_constraintTop_toBottomOf="@+id/lineChart"
         android:layout_marginLeft="8dp"
         app:layout_constraintLeft_toLeftOf="parent"
         android:layout_marginRight="8dp"
         app:layout_constraintRight_toRightOf="parent"
-        fontPath="fonts/FallingSkyBd.otf"/>
+        fontPath="fonts/FallingSkyBd.otf"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="@dimen/margin_14" />
 
 </android.support.constraint.ConstraintLayout>

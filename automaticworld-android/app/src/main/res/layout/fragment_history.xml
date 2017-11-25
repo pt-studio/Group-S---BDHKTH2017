@@ -2,12 +2,23 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorMainBackground"
     tools:context="com.example.andrejlee.smartpotui.ui.fragments.history.HistoryFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rv_history"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:background="@color/transpanrent">
+    </android.support.v7.widget.RecyclerView>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <include
+            android:id="@+id/empty_container_history"
+            layout="@layout/layout_empty_result"
+            android:visibility="gone"/>
+    </FrameLayout>
 
 </FrameLayout>

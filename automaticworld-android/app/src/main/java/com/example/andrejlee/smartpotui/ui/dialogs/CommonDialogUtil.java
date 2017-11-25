@@ -9,7 +9,6 @@ import android.widget.TextView;
 
 import com.example.andrejlee.smartpotui.R;
 
-
 public class CommonDialogUtil {
 
     public static boolean sIsShowed;

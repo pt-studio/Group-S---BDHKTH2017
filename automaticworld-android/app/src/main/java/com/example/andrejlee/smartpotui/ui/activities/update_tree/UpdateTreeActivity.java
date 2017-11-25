@@ -4,8 +4,6 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.Intent;
-import android.support.design.widget.CoordinatorLayout;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.SeekBar;
@@ -14,9 +12,7 @@ import android.widget.TextView;
 import com.blankj.utilcode.util.KeyboardUtils;
 import com.example.andrejlee.smartpotui.R;
 import com.example.andrejlee.smartpotui.constants.Constants;
-import com.example.andrejlee.smartpotui.ui.activities.home.HomeActivity;
 import com.example.andrejlee.smartpotui.ui.bases.BaseDefaultActivity;
-import com.example.andrejlee.smartpotui.ui.fragments.update_tree.UpdateTreeFragmentPresenter;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -47,9 +43,9 @@ public class UpdateTreeActivity extends BaseDefaultActivity implements UpdateTre
         setMainContainer(R.layout.activity_update_tree);
         showToolbar(false);
         ButterKnife.bind(this);
-        initView();
         mPresenter = new UpdateTreePresenter();
         mPresenter.attachView(this);
+        initView();
     }
 
     @Override
@@ -84,6 +80,7 @@ public class UpdateTreeActivity extends BaseDefaultActivity implements UpdateTre
     private void initView() {
         Intent intent = getIntent();
         mCurrentTreeId = intent.getIntExtra(Constants.STRING_TREE_ID_INTENT, Constants.NEGA_ONE_VALUE);
+        mPresenter.getDeviceById(mCurrentTreeId);
 
         mMoisture.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
 
@@ -100,7 +97,7 @@ public class UpdateTreeActivity extends BaseDefaultActivity implements UpdateTre
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress,boolean fromUser) {
                 // TODO Auto-generated method stub
-                mProgessValue.setText(progress);
+                mProgessValue.setText(String.valueOf(progress));
             }
         });
     }
@@ -127,5 +124,25 @@ public class UpdateTreeActivity extends BaseDefaultActivity implements UpdateTre
         } else {
             KeyboardUtils.showSoftInput(this);
         }
+    }
+
+    @Override
+    public void setContentTreeName(String name) {
+        mTreeName.setText(name);
+    }
+
+    @Override
+    public void setSeekBarProgress(int value) {
+        mMoisture.setProgress(value);
+    }
+
+    @Override
+    public void setContentProgressValue(String value) {
+        mProgessValue.setText(value);
+    }
+
+    @Override
+    public void setContentCurrentUser(String value) {
+        mNewUser.setText(value);
     }
 }

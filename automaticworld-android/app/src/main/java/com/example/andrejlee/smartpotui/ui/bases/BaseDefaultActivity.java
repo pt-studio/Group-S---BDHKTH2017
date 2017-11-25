@@ -45,6 +45,7 @@ public abstract class BaseDefaultActivity extends BaseActivity implements View.O
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_base_default);
+        KeyboardUtils.hideSoftInput(this);
         bindView();
         initNavigationDrawer();
     }

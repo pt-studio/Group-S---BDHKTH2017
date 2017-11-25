@@ -4,8 +4,10 @@
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/colorMainBackground"
-        tools:context="com.example.andrejlee.smartpotui.ui.activities.change_password.ChangePasswordActivity">
+        android:clickable="true"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:background="@color/colorMainBackground">
 
         <TextView
             android:layout_width="0dp"

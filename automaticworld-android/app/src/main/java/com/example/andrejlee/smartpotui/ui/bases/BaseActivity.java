@@ -12,10 +12,6 @@ import org.greenrobot.eventbus.EventBus;
 
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
-/**
- * Created by ThienLee on 17-Apr-17.
- */
-
 public abstract class BaseActivity extends ActivityPermissionManager {
 
     protected EventBus mEventBus = EventBus.getDefault();

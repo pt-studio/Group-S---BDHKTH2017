@@ -5,6 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorMainBackground"
+    android:clickable="true"
+    android:focusableInTouchMode="true"
     tools:context="com.example.andrejlee.smartpotui.ui.activities.update_tree.UpdateTreeActivity">
 
     <TextView
@@ -85,7 +87,6 @@
         android:id="@+id/sb_moisture_update"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:progress="@integer/seek_bar_default"
         android:progressDrawable="@drawable/seekbar_style"
         android:thumb="@drawable/custom_thumb"
         android:layout_marginLeft="8dp"

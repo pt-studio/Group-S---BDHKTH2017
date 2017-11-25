@@ -2,16 +2,13 @@ package com.example.andrejlee.smartpotui.entities.api;
 
 import com.google.gson.annotations.SerializedName;
 
-/**
- * Created by Andrej Lee on 11/17/2017.
- */
-
 public class NotiEntity {
 
     @SerializedName("content")
     private String mContent;
     @SerializedName("user_device")
     private int mUserDevice;
+    private String mTreeName;
 
     public String getContent() {
         return mContent;
@@ -27,5 +24,13 @@ public class NotiEntity {
 
     public void setUserDevice(int mUserDevice) {
         this.mUserDevice = mUserDevice;
+    }
+
+    public String getTreeName() {
+        return mTreeName;
+    }
+
+    public void setTreeName(String mTreeName) {
+        this.mTreeName = mTreeName;
     }
 }

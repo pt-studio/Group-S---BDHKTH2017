@@ -2,9 +2,16 @@ package com.example.andrejlee.smartpotui.ui.fragments.storage;
 
 import com.example.andrejlee.smartpotui.ui.bases.MvpView;
 
-/**
- * Created by Andrej Lee on 11/14/2017.
- */
-
 public interface StorageFragmentView extends MvpView {
+    void setAvailPotContent(String s);
+
+    void setUnavailPotContent(String s);
+
+    void setAvailAutoContent(String s);
+
+    void setUnvailAutoContent(String s);
+
+    void setSmartPB(int i);
+
+    void setAutoPB(int i);
 }

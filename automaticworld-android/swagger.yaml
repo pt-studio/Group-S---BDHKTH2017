@@ -233,7 +233,7 @@ paths:
             $ref: "#/definitions/AuthenticationError"
         404:
           description: "Not found"
-  
+
   /user_devices/history/:
     get:
       tags:
@@ -251,7 +251,13 @@ paths:
         type: "integer"
         format: "int64"
         description: "User Device id"
-        required: True
+        required: False
+      - in: "query"
+        name: "count"
+        type: "integer"
+        format: "int64"
+        description: "Number of recent report of user device"
+        required: False
       responses:
         200:
           description: "OK"
@@ -259,7 +265,7 @@ paths:
             type: array
             items:
               $ref: "#/definitions/History"
-                
+
         400:
           description: "Bad request"
         401:
@@ -371,7 +377,7 @@ paths:
           description: "Authentication credentials were not provided"
           schema:
             $ref: "#/definitions/AuthenticationError"
-            
+
 #-----------------------------------------------------------------
 definitions:
   Device:
@@ -517,6 +523,7 @@ definitions:
       update_time:
         type: "string"
         format: "date-time"
+        example: "YYYY-MM-DDThh:mm:ss.xxxxxxZ"
       user_device:
         type: "integer"
         example: 1

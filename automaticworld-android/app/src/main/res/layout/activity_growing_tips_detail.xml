@@ -11,7 +11,6 @@
         android:id="@+id/iv_tree_detail"
         android:layout_width="0dp"
         android:layout_height="250dp"
-        android:src="@drawable/smile"
         app:layout_constraintTop_toTopOf="parent"
         android:layout_marginTop="8dp"
         android:layout_marginRight="8dp"
@@ -26,25 +25,28 @@
         android:layout_width="0dp"
         android:layout_height="70dp"
         android:background="@drawable/gradient_shape_upper"
-        app:layout_constraintTop_toTopOf="@id/iv_tree_detail"
+        app:layout_constraintTop_toTopOf="@+id/iv_tree_detail"
         android:layout_marginLeft="8dp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         android:layout_marginRight="@dimen/margin_08"
-        android:id="@+id/view">
+        android:id="@+id/view"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="@dimen/margin_08">
     </View>
 
     <View
         android:layout_width="0dp"
         android:layout_height="70dp"
         android:background="@drawable/gradient_shape_lower"
-        app:layout_constraintBottom_toBottomOf="@id/iv_tree_detail"        android:layout_marginLeft="8dp"
+        app:layout_constraintBottom_toBottomOf="@+id/iv_tree_detail"        android:layout_marginLeft="8dp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         android:layout_marginRight="@dimen/margin_08"
         app:layout_goneMarginLeft="@dimen/margin_08"
         app:layout_constraintHorizontal_bias="0.0"
-        android:layout_marginBottom="0dp" />
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="@dimen/margin_08" />
 
     <ImageView
         android:id="@+id/iv_back"
@@ -62,7 +64,7 @@
         android:background="@color/white"
         android:text="Hoa Hong"
         android:textColor="@color/black_100"
-        android:textSize="@dimen/font_20"
+        android:textSize="@dimen/font_24"
         android:textAlignment="center"
         android:paddingTop="@dimen/margin_08"
         android:paddingBottom="@dimen/margin_08"
@@ -82,13 +84,20 @@
         android:layout_marginRight="@dimen/margin_08"
         android:src="@drawable/ic_share"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintBottom_toTopOf="@+id/scrollView2" />
+        app:layout_constraintBottom_toTopOf="@+id/tv_detail_tree_description"
+        android:layout_marginEnd="@dimen/margin_08" />
 
-    <ScrollView
+    <TextView
+        android:id="@+id/tv_detail_tree_description"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:scrollbars="vertical"
-        android:fillViewport="true"
+        android:layout_height="0dp"
+        android:scrollbars = "vertical"
+        android:text="@string/dummy_text"
+        android:textSize="@dimen/font_18"
+        android:textColor="@color/dark_gray_text_color"
+        android:padding="@dimen/margin_08"
+        fontPath="fonts/FallingSkyBd.otf"
+        android:background="@color/white"
         app:layout_constraintLeft_toLeftOf="parent"
         android:layout_marginRight="@dimen/margin_08"
         android:layout_marginLeft="@dimen/margin_08"
@@ -96,15 +105,7 @@
         app:layout_constraintTop_toBottomOf="@+id/tv_detail_tree_name"
         android:layout_marginStart="@dimen/margin_08"
         android:layout_marginEnd="@dimen/margin_08"
-        android:id="@+id/scrollView2">
-        <TextView
-            android:id="@+id/tv_detail_tree_description"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="@string/dummy_text"
-            android:textSize="@dimen/font_18"
-            fontPath="fonts/FallingSkyBd.otf"
-            android:background="@color/white"/>
-    </ScrollView>
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="8dp" />
 
 </android.support.constraint.ConstraintLayout>

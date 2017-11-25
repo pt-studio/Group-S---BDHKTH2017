@@ -7,6 +7,13 @@
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
+    <permission
+        android:name="com.example.andrejlee.smartpotui.permission.C2D_MESSAGE"
+        android:protectionLevel="signature" />
+    <uses-permission
+        android:name="com.example.andrejlee.smartpotui.permission.C2D_MESSAGE" />
+
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
 
     <application
         android:name=".application.MyApplication"
@@ -32,20 +39,12 @@
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden" />
         <activity
-            android:name=".ui.activities.change_password.ChangePasswordActivity"
-            android:screenOrientation="portrait"
-            android:windowSoftInputMode="stateHidden" />
-        <activity
             android:name=".ui.activities.change_password_success.ChangePasswordSuccessActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".ui.activities.add_tree.AddTreeActivity"
-            android:screenOrientation="portrait"
-            android:windowSoftInputMode="adjustNothing" />
-        <activity
             android:name=".ui.activities.update_tree.UpdateTreeActivity"
             android:screenOrientation="portrait"
-            android:windowSoftInputMode="stateHidden"></activity>
+            android:windowSoftInputMode="stateHidden" />
         <activity
             android:name=".ui.activities.home.HomeActivity"
             android:screenOrientation="portrait"
@@ -55,17 +54,41 @@
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden" />
         <activity
-            android:name=".ui.activities.storage.StorageActivity"
-            android:screenOrientation="portrait"
-            android:windowSoftInputMode="stateHidden" />
-        <activity
-            android:name=".ui.activities.tips_list.TipsListActivity"
-            android:screenOrientation="portrait"
-            android:windowSoftInputMode="stateHidden" />
-        <activity
             android:name=".ui.activities.growing_tips_detail.GrowingTipsDetailActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".ui.activities.detail.DetailTreeTabActivity"
+            android:label="@string/title_activity_detail_tree_tab"
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <receiver
+            android:name="com.google.android.gms.gcm.GcmReceiver"
+            android:exported="true"
+            android:permission="com.google.android.c2dm.permission.SEND" >
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+                <category android:name="com.example.andrejlee.smartpotui" />
+            </intent-filter>
+        </receiver>
+
+        <service
+            android:name=".services.TokenRefreshListenerService"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.google.android.gms.iid.InstanceID" />
+            </intent-filter>
+        </service>
+
+        <service android:name=".services.RegistrationService"
+            android:exported="false"/>
+
+        <service
+            android:name=".services.NotificationsListenerService"
+            android:exported="false" >
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+            </intent-filter>
+        </service>
     </application>
 
 </manifest>

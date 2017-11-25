@@ -2,10 +2,6 @@ package com.example.andrejlee.smartpotui.entities.api;
 
 import com.google.gson.annotations.SerializedName;
 
-/**
- * Created by Andrej Lee on 11/17/2017.
- */
-
 public class TypeEntity {
 
     @SerializedName("name")

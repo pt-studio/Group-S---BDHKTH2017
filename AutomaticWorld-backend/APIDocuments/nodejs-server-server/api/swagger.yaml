@@ -1,0 +1,755 @@
+swagger: "2.0"
+info:
+  description: "API documents for front-end development"
+  version: "1.0.0"
+  title: "Automatic World API"
+  termsOfService: "http://swagger.io/terms/"
+  contact:
+    email: "leminhsonphysics@gmail.com"
+  license:
+    name: "Apache 2.0"
+    url: "http://www.apache.org/licenses/LICENSE-2.0.html"
+host: "automaticworld.herokuapp.com"
+basePath: "/api/v1"
+tags:
+- name: "Login"
+- name: "Device"
+- name: "User Device"
+- name: "Blog"
+- name: "Notification"
+schemes:
+- "https"
+
+securityDefinitions:
+  AccessToken:
+    description: |
+      The following syntax must be used in the 'Authorization' header :
+        Token xxxxx
+    type: apiKey
+    name: Authorization
+    in: header
+security:
+  - AccessToken: []
+#-------------------------------------------------------------------------------
+paths:
+  /auth/login/:
+    post:
+      tags:
+      - "Login"
+      summary: "Login to system"
+      description: "Using username and password to login, return token as result"
+      operationId: "login"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "Username and password"
+        description: "Device type object"
+        required: true
+        schema:
+          type: "object"
+          properties:
+            username:
+              type: "string"
+              example: "string"
+            password:
+              type: "string"
+              example: "string"
+      responses:
+        200:
+          description: "OK"
+          schema:
+            type: "object"
+            properties:
+              key:
+                type: "string"
+                example: "token"
+        400:
+          description: "Bad request"
+  /devices/:
+    post:
+      tags:
+      - "Device"
+      summary: "Add a new device type"
+      description: "Add a new device type"
+      operationId: "addDeviceType"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "Device type object"
+        description: "Device type object"
+        required: true
+        schema:
+          $ref: "#/definitions/Device"
+      responses:
+        201:
+          description: "Created"
+          schema:
+            $ref: "#/definitions/Device"
+        401:
+          description: "Authentication credentials were not provided"
+          schema:
+            $ref: "#/definitions/AuthenticationError"
+        400:
+          description: "Bad request"
+    get:
+      tags:
+      - "Device"
+      summary: "Get all device types"
+      description: "Get all device types"
+      operationId: "getAllDeviceType"
+      produces:
+      - "application/json"
+      responses:
+        200:
+          description: "OK"
+        400:
+          description: "Bad request"
+        401:
+          description: "Authentication credentials were not provided"
+          schema:
+            $ref: "#/definitions/AuthenticationError"
+  /devices/{id}/:
+    put:
+      tags:
+      - "Device"
+      summary: "Update an existing device type"
+      description: "Update an existing device type"
+      operationId: "updateDeviceType"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "path"
+        name: "id"
+        type: "integer"
+        format: "int64"
+        description: "Device Type id"
+        required: True
+      - in: "body"
+        name: "Device Type object"
+        description: "Device Type objects"
+        required: true
+        schema:
+          $ref: "#/definitions/Device"
+      responses:
+        200:
+          description: "Created"
+          schema:
+            $ref: "#/definitions/Device"
+        400:
+          description: "Bad Request"
+        401:
+          description: "Authentication credentials were not provided"
+          schema:
+            $ref: "#/definitions/AuthenticationError"
+        404:
+          description: "Device Type not found"
+    get:
+      tags:
+      - "Device"
+      summary: "Get a device type"
+      description: "Get a device type with id"
+      operationId: "getADeviceType"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "path"
+        name: "id"
+        type: "integer"
+        format: "int64"
+        description: "Device Type id"
+        required: True
+      responses:
+        200:
+          description: "OK"
+        400:
+          description: "Bad request"
+        401:
+          description: "Authentication credentials were not provided"
+          schema:
+            $ref: "#/definitions/AuthenticationError"
+    delete:
+      tags:
+      - "Device"
+      summary: "Deletes a device"
+      description: "Deletes a device"
+      operationId: "deleteDeviceType"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "path"
+        name: "id"
+        type: "integer"
+        format: "int64"
+        description: "Device Type id"
+        required: True
+      responses:
+        400:
+          description: "Bad request"
+        404:
+          description: "Device type not found"
+          
+# User Devices
+
+  /user_devices/:
+    post:
+      tags:
+      - "User Device"
+      summary: "Add a new device for user"
+      description: "Add a new device for user"
+      operationId: "addUserDevice"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "UserDevice object"
+        description: "UserDevice object"
+        required: True
+        schema:
+          $ref: "#/definitions/CreateUserDevice"
+      responses:
+        201:
+          description: "Created"
+          schema:
+            $ref: "#/definitions/UserDevice"
+        401:
+          description: "Authentication credentials were not provided"
+          schema:
+            $ref: "#/definitions/AuthenticationError"
+        400:
+          description: "Bad request"
+    get:
+      tags:
+      - "User Device"
+      summary: "Get all user's devices"
+      description: "Get all user's devices"
+      operationId: "getAllUserDevices"
+      produces:
+      - "application/json"
+      responses:
+        200:
+          description: "OK"
+        400:
+          description: "Bad request"
+        401:
+          description: "Authentication credentials were not provided"
+          schema:
+            $ref: "#/definitions/AuthenticationError"
+  /user_devices/{id}/:
+    put:
+      tags:
+      - "User Device"
+      summary: "Update an existing device for user"
+      description: "Update an existing device for user"
+      operationId: "updateUserDevice"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "path"
+        name: "id"
+        type: "integer"
+        format: "int64"
+        description: "User Device id"
+        required: True
+      - in: "body"
+        name: "Tree's information"
+        description: "Tree's information"
+        required: true
+        schema:
+          $ref: "#/definitions/UpdateUserDevice"
+      responses:
+        200:
+          description: "OK"
+          schema:
+            $ref: "#/definitions/UserDevice"
+        400:
+          description: "Bad Request"
+        401:
+          description: "Authentication credentials were not provided"
+          schema:
+            $ref: "#/definitions/AuthenticationError"
+        404:
+          description: "Not found"
+    get:
+      tags:
+      - "User Device"
+      summary: "Get a user device"
+      description: "Get information of a device of user with id"
+      operationId: "getAUserDevice"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "path"
+        name: "id"
+        type: "integer"
+        format: "int64"
+        description: "User Device id"
+        required: True
+      responses:
+        200:
+          description: "OK"
+          schema:
+            $ref: "#/definitions/UserDevice"
+        400:
+          description: "Bad request"
+        401:
+          description: "Authentication credentials were not provided"
+          schema:
+            $ref: "#/definitions/AuthenticationError"
+
+  /user_devices/token/:
+    get:
+      tags:
+      - "User Device"
+      summary: "Get user's token"
+      description: "Get user's token. Used for ESP devices."
+      operationId: "getUserToken"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "Device's codename"
+        description: "Device's codename"
+        required: True
+        schema:
+          type: object
+          properties:
+            code_name:
+              type: string
+              example: "string"
+      responses:
+        200:
+          description: "OK"
+        400:
+          description: "Miss codename in query"
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+                example: "Miss codename in query"
+
+  /user_devices/update/:
+    post:
+      tags:
+      - "User Device"
+      summary: "Update information from humidity sensors"
+      description: "Update information from humidity sensors"
+      operationId: "updateSensorInformation"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "UpdateInfo"
+        description: "Status of device and information of sensors"
+        required: True
+        schema:
+          type: object
+          properties:
+            code_name:
+              type: string
+              example: "string"
+            status:
+              type: string
+              example: "sleep/working/off/not-used"
+            humidity_value:
+              type: string
+              example: 50
+      responses:
+        200:
+          description: "OK"
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+                example: "Update from ESP successfully"
+        400:
+          description: "Bad request"
+        404:
+          description: "User with the codename does not exist"
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+                example: "User with the codename does not exist"
+
+# Blog
+  /blogs/:
+    post:
+      tags:
+      - "Blog"
+      summary: "Add a new blog"
+      description: "Add a new blog to help user take care their plant"
+      operationId: "addBlog"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "Blog object"
+        description: "Blog information"
+        required: true
+        schema:
+          $ref: "#/definitions/Blog"
+      responses:
+        201:
+          description: "Created"
+          schema:
+            $ref: "#/definitions/Device"
+        401:
+          description: "Authentication credentials were not provided"
+          schema:
+            $ref: "#/definitions/AuthenticationError"
+        400:
+          description: "Bad request"
+    get:
+      tags:
+      - "Blog"
+      summary: "Get all blogs"
+      description: "Get all blogs"
+      operationId: "getAllBlog"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      responses:
+        200:
+          description: "OK"
+        400:
+          description: "Bad request"
+        401:
+          description: "Authentication credentials were not provided"
+          schema:
+            $ref: "#/definitions/AuthenticationError"
+  /blogs/{id}/:
+    put:
+      tags:
+      - "Blog"
+      summary: "Update an existing blog"
+      description: "Update an existing blog"
+      operationId: "updateBlog"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "path"
+        name: "id"
+        type: "integer"
+        format: "int64"
+        description: "Blog id"
+        required: True
+      - in: "body"
+        name: "Blog object"
+        description: "Blog "
+        required: true
+        schema:
+          $ref: "#/definitions/Blog"
+      responses:
+        200:
+          description: "Created"
+          schema:
+            $ref: "#/definitions/Device"
+        400:
+          description: "Bad Request"
+        401:
+          description: "Authentication credentials were not provided"
+          schema:
+            $ref: "#/definitions/AuthenticationError"
+        404:
+          description: "Blog not found"
+    get:
+      tags:
+      - "Blog"
+      summary: "Get a blog"
+      description: "Get a device type with id"
+      operationId: "getABlog"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "path"
+        name: "id"
+        type: "integer"
+        format: "int64"
+        description: "Blog id"
+        required: True
+      responses:
+        200:
+          description: "OK"
+        400:
+          description: "Bad request"
+        401:
+          description: "Authentication credentials were not provided"
+          schema:
+            $ref: "#/definitions/AuthenticationError"
+    delete:
+      tags:
+      - "Blog"
+      summary: "Deletes a blog"
+      description: "Delete a blog"
+      operationId: "deleteABlog"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "path"
+        name: "id"
+        type: "integer"
+        format: "int64"
+        description: "Blog id"
+        required: True
+      responses:
+        400:
+          description: "Bad request"
+        404:
+          description: "Blog not found"
+
+  # Notification
+  /notifications/:
+    post:
+      tags:
+      - "Notification"
+      summary: "Add a new notification"
+      description: "Add a new notification"
+      operationId: "addNotification"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "Notification object"
+        description: "notification information"
+        required: true
+        schema:
+          $ref: "#/definitions/Notification"
+      responses:
+        201:
+          description: "Created"
+          schema:
+            $ref: "#/definitions/Notification"
+        401:
+          description: "Authentication credentials were not provided"
+          schema:
+            $ref: "#/definitions/AuthenticationError"
+        400:
+          description: "Bad request"
+    get:
+      tags:
+      - "Notification"
+      summary: "Get all notifications"
+      description: "Get all notifications"
+      operationId: "getAllNotifications"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      responses:
+        200:
+          description: "OK"
+        400:
+          description: "Bad request"
+        401:
+          description: "Authentication credentials were not provided"
+          schema:
+            $ref: "#/definitions/AuthenticationError"
+  /notifications/{id}/:
+    get:
+      tags:
+      - "Notification"
+      summary: "Get a notifications"
+      description: "Get a notification"
+      operationId: "getANotification"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "path"
+        name: "id"
+        type: "integer"
+        format: "int64"
+        description: "Notification id"
+        required: True
+      responses:
+        200:
+          description: "OK"
+        400:
+          description: "Bad request"
+        401:
+          description: "Authentication credentials were not provided"
+          schema:
+            $ref: "#/definitions/AuthenticationError"
+    delete:
+      tags:
+      - "Notification"
+      summary: "Delete a notification"
+      description: "Delete a notification"
+      operationId: "deleteANotification"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "path"
+        name: "id"
+        type: "integer"
+        format: "int64"
+        description: "Notification id"
+        required: True
+      responses:
+        400:
+          description: "Bad request"
+        404:
+          description: "Blog not found"
+
+definitions:
+  Device:
+    type: "object"
+    required:
+    - "name"
+    - "code_name"
+    - "description"
+    properties:
+      name:
+        type: "string"
+        example: "string"
+      code_name:
+        type: "string"
+        example: "string"
+      description:
+        type: "string"
+        example: "string"
+  UserDevice:
+    type: "object"
+    required:
+    - "device_type"
+    - "user"
+    - "code_name"
+    - "status"
+    - "attribute"
+    - "name"
+    properties:
+      name:
+        type: "string"
+        example: "string"
+      device_type:
+        type: "integer"
+        example: 1
+      user:
+        type: "integer"
+        example: 1
+      code_name:
+        type: "string"
+        example: "string"
+      status:
+        type: "string"
+        example: "sleep/working/off/not-used"
+      attribute:
+        type: "object"
+        properties:
+          humidity_value:
+            type: "integer"
+            format: "int64"
+            example: 50
+          safe_value:
+            type: "integer"
+            format: "int64"
+            example: 50
+  UpdateUserDevice:
+    type: "object"
+    required:
+    - "name"
+    - "username"
+    - "attribute"
+    properties:
+      name:
+        type: "string"
+        example: "string"
+      username:
+        type: "string"
+        example: "string"
+      attribute:
+        type: "object"
+        properties:
+          safe_value:
+            type: "integer"
+            format: "int64"
+            example: 50
+  CreateUserDevice:
+    type: "object"
+    required:
+    - "device_type"
+    - "user"
+    - "status"
+    properties:
+      device_type:
+        type: "integer"
+        example: 1
+      user:
+        type: "integer"
+        example: 1
+      status:
+        type: "string"
+        example: "sleep/working/off/not-used"
+  Blog:
+    type: "object"
+    required:
+    - "title"
+    - "content"
+    - "image"
+    properties:
+      title:
+        type: "string"
+        example: "string"
+      content:
+        type: "string"
+        example: "string"
+      image:
+        type: "string"
+        format: "binary"
+        example: "image file"
+  Notification:
+    type: "object"
+    required:
+    - "content"
+    - "user_device"
+    properties:
+      content:
+        type: "string"
+        example: "string"
+      user_device:
+        type: "integer"
+        example: "1"
+  AuthenticationError:
+    type: "object"
+    properties:
+      detail:
+        type: "string"
+        example: "Authentication credentials were not provided"
+  ApiResponse:
+    type: "object"
+    properties:
+      code:
+        type: "integer"
+        format: "int32"
+      type:
+        type: "string"
+      message:
+        type: "string"
+externalDocs:
+  description: "Find out more about Swagger"
+  url: "http://swagger.io"

@@ -15,14 +15,12 @@ import com.example.andrejlee.smartpotui.constants.Constants;
 import com.example.andrejlee.smartpotui.entities.api.AttributeEnity;
 import com.example.andrejlee.smartpotui.entities.api.TreeEntity;
 import com.example.andrejlee.smartpotui.ui.activities.detail.DetailTreeActivity;
+import com.example.andrejlee.smartpotui.ui.activities.detail.DetailTreeTabActivity;
+import com.example.andrejlee.smartpotui.ui.activities.detail.DetailTreeView;
 
 import java.util.List;
 
 import butterknife.BindView;
-
-/**
- * Created by Andrej Lee on 11/17/2017.
- */
 
 public class TreeAdapter extends RecyclerView.Adapter<BaseViewHolder> {
 
@@ -44,7 +42,8 @@ public class TreeAdapter extends RecyclerView.Adapter<BaseViewHolder> {
 
     private void handleEventOnView(BaseViewHolder holder) {
         holder.itemView.setOnClickListener(v -> {
-            DetailTreeActivity.start((Activity) mContext, mListItem.get(holder.getAdapterPosition()).getId());
+//            DetailTreeActivity.start((Activity) mContext, mListItem.get(holder.getAdapterPosition()).getId());
+            DetailTreeTabActivity.start((Activity) mContext, mListItem.get(holder.getAdapterPosition()).getId());
         });
     }
 

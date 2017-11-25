@@ -20,7 +20,6 @@ import com.example.andrejlee.smartpotui.ui.fragments.growing_tips.GrowingTipsFra
 import com.example.andrejlee.smartpotui.ui.fragments.history.HistoryFragment;
 import com.example.andrejlee.smartpotui.ui.fragments.home.HomeFragment;
 import com.example.andrejlee.smartpotui.ui.fragments.storage.StorageFragment;
-import com.example.andrejlee.smartpotui.ui.fragments.update_tree.UpdateTreeFragment;
 import com.mikepenz.materialdrawer.model.interfaces.IDrawerItem;
 
 import java.util.HashMap;
@@ -94,15 +93,15 @@ public class HomeActivity extends BaseDefaultActivity implements HomeView {
                     mFragmentManager.put(HistoryFragment.class.getName(), fragment);
                 }
                 break;
-            case Constants.TabId.UPDATE:
-                if (mFragmentManager.containsKey(UpdateTreeFragment.class.getName())) {
-                    fragment = mFragmentManager.get(UpdateTreeFragment.class.getName());
-                }
-                if (fragment == null) {
-                    fragment = new UpdateTreeFragment();
-                    mFragmentManager.put(UpdateTreeFragment.class.getName(), fragment);
-                }
-                break;
+//            case Constants.TabId.UPDATE:
+//                if (mFragmentManager.containsKey(UpdateTreeFragment.class.getName())) {
+//                    fragment = mFragmentManager.get(UpdateTreeFragment.class.getName());
+//                }
+//                if (fragment == null) {
+//                    fragment = new UpdateTreeFragment();
+//                    mFragmentManager.put(UpdateTreeFragment.class.getName(), fragment);
+//                }
+//                break;
             case Constants.TabId.CHANGEPASS:
                 if (mFragmentManager.containsKey(ChangePassFragment.class.getName())) {
                     fragment = mFragmentManager.get(ChangePassFragment.class.getName());
@@ -144,13 +143,6 @@ public class HomeActivity extends BaseDefaultActivity implements HomeView {
         if (fragment != null) {
             FragmentManager fragmentManager = getSupportFragmentManager();
             FragmentTransaction transaction = fragmentManager.beginTransaction();
-//            if (isAnimate) {
-//                if (back) {
-//                    transaction.setCustomAnimations(R.anim.slide_in_left, R.anim.slide_out_right);
-//                } else {
-//                    transaction.setCustomAnimations(R.anim.slide_in_right, R.anim.slide_out_left);
-//                }
-//            }
             transaction.replace(R.id.main_container, fragment, fragment.getClass().getName());
             transaction.commit();
         }
@@ -165,6 +157,12 @@ public class HomeActivity extends BaseDefaultActivity implements HomeView {
     protected void onDestroy() {
         super.onDestroy();
         mPresenter.detachView();
+    }
+
+    @Override
+    public void onBackPressed() {
+//        finish();
+        this.moveTaskToBack(true);
     }
 
     @Override

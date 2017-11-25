@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<RelativeLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:android="http://schemas.android.com/apk/res/android"
@@ -12,6 +13,17 @@
         android:layout_height="match_parent"
         android:background="@color/colorMainBackground"
         tools:context="com.example.andrejlee.smartpotui.ui.activities.forgot_password.ForgotPasswordActivity">
+
+        <ImageView
+            android:id="@+id/iv_back_forgot"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:padding="10dp"
+            android:src="@drawable/ic_left_arrow"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="8dp"
+            android:layout_marginLeft="8dp"
+            app:layout_constraintLeft_toLeftOf="parent" />
 
         <ImageView
             android:layout_width="wrap_content"

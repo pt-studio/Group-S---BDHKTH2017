@@ -110,6 +110,7 @@
             android:layout_marginBottom="@dimen/margin_08"
             android:layout_marginStart="@dimen/margin_08"
             android:layout_marginEnd="@dimen/margin_08"
+            android:visibility="gone"
             app:layout_constraintLeft_toLeftOf="@+id/guideline3" />
 
         <android.support.constraint.Guideline

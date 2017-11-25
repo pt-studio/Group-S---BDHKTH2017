@@ -2,15 +2,7 @@ package com.example.andrejlee.smartpotui.ui.activities.detail;
 
 import com.example.andrejlee.smartpotui.ui.bases.MvpView;
 
-/**
- * Created by Andrej Lee on 11/12/2017.
- */
-
 public interface DetailTreeView extends MvpView {
 
-    void setContentSafeMoisture(String content);
-
-    void setContentCurrentMoisture(String content);
-
-    void setContentStatus(String content);
+    void setScreenTitle(String title);
 }

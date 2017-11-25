@@ -3,10 +3,6 @@ package com.example.andrejlee.smartpotui.ui.bases;
 
 import io.reactivex.disposables.CompositeDisposable;
 
-/**
- * Created by ThienLee on 17-Apr-17.
- */
-
 public abstract class BasePresenter<T extends MvpView> implements Presenter<T> {
     protected T mMvpView;
     protected CompositeDisposable mSubcriptions;

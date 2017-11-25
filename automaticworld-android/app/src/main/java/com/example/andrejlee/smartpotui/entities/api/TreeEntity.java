@@ -1,12 +1,7 @@
 package com.example.andrejlee.smartpotui.entities.api;
 
-import com.bumptech.glide.Glide;
 import com.example.andrejlee.smartpotui.constants.Constants;
 import com.google.gson.annotations.SerializedName;
-
-/**
- * Created by Andrej Lee on 11/15/2017.
- */
 
 public class TreeEntity {
 
@@ -81,17 +76,17 @@ public class TreeEntity {
         this.mName = mName;
     }
 
-    public int getImageStatus(){
+    public int getImageStatus() {
         int temp = mAttribute.getSaveValue() - mAttribute.getHumidity();
 
-        if (mStatus != null){
-            if (mStatus.equals(Constants.STATUS_OFF)){
+        if (mStatus != null) {
+            if (mStatus.equals(Constants.STATUS_OFF)) {
                 return Constants.IMAGE_STATUS_ANGRY;
             } else {
-                if (temp > 0) {
-                    return Constants.IMAGE_STATUS_CRY;
-                } else {
+                if (temp >= 0) {
                     return Constants.IMAGE_STATUS_SMILE;
+                } else {
+                    return Constants.IMAGE_STATUS_CRY;
                 }
             }
         }
