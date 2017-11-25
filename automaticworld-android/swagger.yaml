@@ -1,0 +1,550 @@
+swagger: "2.0"
+info:
+  description: "API documents for front-end development"
+  version: "1.0.0"
+  title: "Automatic World API"
+  termsOfService: "http://swagger.io/terms/"
+  contact:
+    email: "leminhsonphysics@gmail.com"
+  license:
+    name: "Apache 2.0"
+    url: "http://www.apache.org/licenses/LICENSE-2.0.html"
+host: "automaticworld.herokuapp.com"
+basePath: "/api/v1"
+tags:
+- name: "Login"
+- name: "Device"
+- name: "User Device"
+- name: "Blog"
+- name: "Notification"
+schemes:
+- "https"
+
+securityDefinitions:
+  AccessToken:
+    description: |
+      The following syntax must be used in the 'Authorization' header :
+        Token xxxxx
+    type: apiKey
+    name: Authorization
+    in: header
+security:
+  - AccessToken: []
+#-------------------------------------------------------------------------------
+paths:
+  /auth/login/:
+    post:
+      tags:
+      - "Login"
+      summary: "Login to system"
+      description: "Using username and password to login, return token as result"
+      operationId: "login"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "Username and password"
+        description: "Device type object"
+        required: true
+        schema:
+          type: "object"
+          properties:
+            username:
+              type: "string"
+              example: "string"
+            password:
+              type: "string"
+              example: "string"
+      responses:
+        200:
+          description: "OK"
+          schema:
+            type: "object"
+            properties:
+              key:
+                type: "string"
+                example: "token"
+        400:
+          description: "Bad request"
+
+  /devices/:
+    get:
+      tags:
+      - "Device"
+      summary: "Get all device types"
+      description: "Get all device types"
+      operationId: "getAllDeviceType"
+      produces:
+      - "application/json"
+      responses:
+        200:
+          description: "OK"
+          schema:
+            type: array
+            items:
+              $ref: "#/definitions/Device"
+        400:
+          description: "Bad request"
+        401:
+          description: "Authentication credentials were not provided"
+          schema:
+            $ref: "#/definitions/AuthenticationError"
+  /devices/{id}/:
+    get:
+      tags:
+      - "Device"
+      summary: "Get a device type"
+      description: "Get a device type with id"
+      operationId: "getADeviceType"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "path"
+        name: "id"
+        type: "integer"
+        format: "int64"
+        description: "Device Type id"
+        required: True
+      responses:
+        200:
+          description: "OK"
+        400:
+          description: "Bad request"
+        401:
+          description: "Authentication credentials were not provided"
+          schema:
+            $ref: "#/definitions/AuthenticationError"
+
+# User Devices
+
+  /user_devices/:
+    get:
+      tags:
+      - "User Device"
+      summary: "Get all user's devices"
+      description: "Get all user's devices"
+      operationId: "getAllUserDevices"
+      produces:
+      - "application/json"
+      responses:
+        200:
+          description: "OK"
+        400:
+          description: "Bad request"
+        401:
+          description: "Authentication credentials were not provided"
+          schema:
+            $ref: "#/definitions/AuthenticationError"
+
+  /user_devices/{id}/:
+    get:
+      tags:
+      - "User Device"
+      summary: "Get a user device"
+      description: "Get information of a device of user with id"
+      operationId: "getAUserDevice"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "path"
+        name: "id"
+        type: "integer"
+        format: "int64"
+        description: "User Device id"
+        required: True
+      responses:
+        200:
+          description: "OK"
+          schema:
+            $ref: "#/definitions/UserDevice"
+        400:
+          description: "Bad request"
+        401:
+          description: "Authentication credentials were not provided"
+          schema:
+            $ref: "#/definitions/AuthenticationError"
+  /user_devices/add_tree/:
+    put:
+      tags:
+      - "User Device"
+      summary: "Add new device for user"
+      description: "Add new device for user on mobile"
+      operationId: "addUserDeviceMobile"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "Tree's information"
+        description: "Tree's information"
+        required: true
+        schema:
+          $ref: "#/definitions/AddUserDeviceMobile"
+      responses:
+        200:
+          description: "OK"
+          schema:
+            $ref: "#/definitions/UserDevice"
+        400:
+          description: "Bad Request"
+        401:
+          description: "Authentication credentials were not provided"
+          schema:
+            $ref: "#/definitions/AuthenticationError"
+        404:
+          description: "Not found"
+  /user_devices/mobile_update/{id}/:
+    put:
+      tags:
+      - "User Device"
+      summary: "Update an existing device for user"
+      description: "Update an existing device for user"
+      operationId: "updateUserDevice"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "path"
+        name: "id"
+        type: "integer"
+        format: "int64"
+        description: "User Device id"
+        required: True
+      - in: "body"
+        name: "Tree's information"
+        description: "Tree's information"
+        required: true
+        schema:
+          $ref: "#/definitions/UpdateUserDevice"
+      responses:
+        200:
+          description: "OK"
+          schema:
+            $ref: "#/definitions/UserDevice"
+        400:
+          description: "Bad Request"
+        401:
+          description: "Authentication credentials were not provided"
+          schema:
+            $ref: "#/definitions/AuthenticationError"
+        404:
+          description: "Not found"
+  
+  /user_devices/history/:
+    get:
+      tags:
+      - "User Device"
+      summary: "Get history of a user device"
+      description: "Get history of a user device"
+      operationId: "getHistoryUserDevice"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "query"
+        name: "user_device_id"
+        type: "integer"
+        format: "int64"
+        description: "User Device id"
+        required: True
+      responses:
+        200:
+          description: "OK"
+          schema:
+            type: array
+            items:
+              $ref: "#/definitions/History"
+                
+        400:
+          description: "Bad request"
+        401:
+          description: "Authentication credentials were not provided"
+          schema:
+            $ref: "#/definitions/AuthenticationError"
+
+# Blog
+  /blogs/:
+    get:
+      tags:
+      - "Blog"
+      summary: "Get all blogs"
+      description: "Get all blogs"
+      operationId: "getAllBlog"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      responses:
+        200:
+          description: "OK"
+          schema:
+            type: array
+            items:
+              $ref: "#/definitions/Blog"
+        400:
+          description: "Bad request"
+        401:
+          description: "Authentication credentials were not provided"
+          schema:
+            $ref: "#/definitions/AuthenticationError"
+  /blogs/{id}/:
+    get:
+      tags:
+      - "Blog"
+      summary: "Get a blog"
+      description: "Get a device type with id"
+      operationId: "getABlog"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "path"
+        name: "id"
+        type: "integer"
+        format: "int64"
+        description: "Blog id"
+        required: True
+      responses:
+        200:
+          description: "OK"
+        400:
+          description: "Bad request"
+        401:
+          description: "Authentication credentials were not provided"
+          schema:
+            $ref: "#/definitions/AuthenticationError"
+
+  # Notification
+  /notifications/:
+    post:
+      tags:
+      - "Notification"
+      summary: "Add a new notification"
+      description: "Add a new notification"
+      operationId: "addNotification"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "Notification object"
+        description: "notification information"
+        required: true
+        schema:
+          $ref: "#/definitions/Notification"
+      responses:
+        201:
+          description: "Created"
+          schema:
+            $ref: "#/definitions/Notification"
+        401:
+          description: "Authentication credentials were not provided"
+          schema:
+            $ref: "#/definitions/AuthenticationError"
+        400:
+          description: "Bad request"
+    get:
+      tags:
+      - "Notification"
+      summary: "Get all notifications"
+      description: "Get all notifications"
+      operationId: "getAllNotifications"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      responses:
+        200:
+          description: "OK"
+          schema:
+            type: array
+            items:
+              $ref: "#/definitions/Notification"
+        400:
+          description: "Bad request"
+        401:
+          description: "Authentication credentials were not provided"
+          schema:
+            $ref: "#/definitions/AuthenticationError"
+            
+#-----------------------------------------------------------------
+definitions:
+  Device:
+    type: "object"
+    required:
+    - "name"
+    - "code_name"
+    - "description"
+    properties:
+      name:
+        type: "string"
+        example: "string"
+      code_name:
+        type: "string"
+        example: "string"
+      description:
+        type: "string"
+        example: "string"
+  UserDevice:
+    type: "object"
+    required:
+    - "device_type"
+    - "user"
+    - "code_name"
+    - "status"
+    - "attribute"
+    - "name"
+    properties:
+      name:
+        type: "string"
+        example: "string"
+      device_type:
+        type: "integer"
+        example: 1
+      user:
+        type: "integer"
+        example: 1
+      code_name:
+        type: "string"
+        example: "string"
+      status:
+        type: "string"
+        example: "sleep/working/off/not-used"
+      attribute:
+        type: "object"
+        properties:
+          humidity_value:
+            type: "integer"
+            format: "int64"
+            example: 50
+          safe_value:
+            type: "integer"
+            format: "int64"
+            example: 50
+  AddUserDeviceMobile:
+    type: "object"
+    required:
+    - "name"
+    - "device_type"
+    - "safe_value"
+    properties:
+      name:
+        type: "string"
+        example: "string"
+      device_type:
+        type: "integer"
+        example: 1
+      safe_value:
+        type: "integer"
+        example: 50
+  UpdateUserDevice:
+    type: "object"
+    required:
+    - "name"
+    - "username"
+    - "attribute"
+    properties:
+      name:
+        type: "string"
+        example: "string"
+      username:
+        type: "string"
+        example: "string"
+      attribute:
+        type: "object"
+        properties:
+          safe_value:
+            type: "integer"
+            format: "int64"
+            example: 50
+  CreateUserDevice:
+    type: "object"
+    required:
+    - "device_type"
+    - "user"
+    - "status"
+    properties:
+      device_type:
+        type: "integer"
+        example: 1
+      user:
+        type: "integer"
+        example: 1
+      status:
+        type: "string"
+        example: "sleep/working/off/not-used"
+  Blog:
+    type: "object"
+    required:
+    - "title"
+    - "content"
+    - "image"
+    properties:
+      title:
+        type: "string"
+        example: "string"
+      content:
+        type: "string"
+        example: "string"
+      image:
+        type: "string"
+        format: "binary"
+        example: "image file"
+  Notification:
+    type: "object"
+    required:
+    - "content"
+    - "user_device"
+    properties:
+      content:
+        type: "string"
+        example: "string"
+      user_device:
+        type: "integer"
+        example: "1"
+  History:
+    type: "object"
+    required:
+    - "user_device"
+    - "attribute"
+    - "update_time"
+    properties:
+      update_time:
+        type: "string"
+        format: "date-time"
+      user_device:
+        type: "integer"
+        example: 1
+      attribute:
+        type: "object"
+        properties:
+          safe_value:
+            type: "integer"
+            example: 50
+          humidity_value:
+            type: "integer"
+            example: 0
+  AuthenticationError:
+    type: "object"
+    properties:
+      detail:
+        type: "string"
+        example: "Authentication credentials were not provided"
+  ApiResponse:
+    type: "object"
+    properties:
+      code:
+        type: "integer"
+        format: "int32"
+      type:
+        type: "string"
+      message:
+        type: "string"
+externalDocs:
+  description: "Find out more about Swagger"
+  url: "http://swagger.io"

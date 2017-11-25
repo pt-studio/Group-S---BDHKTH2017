@@ -3,7 +3,10 @@ package com.example.andrejlee.smartpotui.application;
 import android.content.Context;
 import android.support.multidex.MultiDexApplication;
 
+import com.blankj.utilcode.util.Utils;
 import com.example.andrejlee.smartpotui.R;
+import com.example.andrejlee.smartpotui.common.SmartPotSettings;
+import com.example.andrejlee.smartpotui.network.SmartPotNetworkManager;
 
 import uk.co.chrisjenx.calligraphy.CalligraphyConfig;
 
@@ -27,11 +30,14 @@ public class MyApplication extends MultiDexApplication {
         super.onCreate();
         mInstance = this;
 //        initRealm();
+        Utils.init(this);
         CalligraphyConfig.initDefault(new CalligraphyConfig.Builder()
-                .setDefaultFontPath("fonts/Pro-m.otf")
+                .setDefaultFontPath("fonts/FallingSkyBd.otf")
                 .setFontAttrId(R.attr.fontPath)
                 .build()
         );
+        SmartPotSettings.init(this);
+        SmartPotNetworkManager.init();
     }
 
     //    PRIVATE METHODS

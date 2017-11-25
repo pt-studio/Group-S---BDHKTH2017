@@ -5,5 +5,5 @@ from .models import DeviceType
 class DeviceTypeSerializer(serializers.ModelSerializer):
     class Meta:
         model = DeviceType
-        fields = ('name', 'code_name', 'description')
+        fields = ('id', 'name', 'code_name', 'description')
 

@@ -7,4 +7,10 @@ import com.example.andrejlee.smartpotui.ui.bases.MvpView;
  */
 
 public interface DetailTreeView extends MvpView {
+
+    void setContentSafeMoisture(String content);
+
+    void setContentCurrentMoisture(String content);
+
+    void setContentStatus(String content);
 }

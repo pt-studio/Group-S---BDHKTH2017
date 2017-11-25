@@ -19,8 +19,10 @@
     <color name="dark_blue_pressed">#0053af</color>
     <color name="transpanrent">#00000000</color>
     <color name="transpanrent_blur">#8e000000</color>
-    <color name="toolbar_bg_normal">#FF0000</color>
+    <color name="toolbar_bg_normal">#E2DEDE</color>
     <color name="toolbar_bg_pressed">#ef0000</color>
+    <color name="progress_bar_start">#77D353</color>
+    <color name="white">#FFFFFF</color>
 
 
     <!--Text-->

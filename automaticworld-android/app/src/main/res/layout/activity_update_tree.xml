@@ -21,7 +21,7 @@
         app:layout_constraintLeft_toLeftOf="parent"
         android:layout_marginRight="8dp"
         app:layout_constraintRight_toRightOf="parent"
-        android:id="@+id/textView6"
+        android:id="@+id/tv_tree_title"
         fontPath="fonts/FallingSkyBd.otf"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp" />
@@ -35,8 +35,9 @@
         android:textColor="@color/white_100"
         android:textStyle="bold"
         android:textSize="@dimen/font_20"
+        android:imeOptions="actionNext"
         android:layout_marginTop="@dimen/margin_40"
-        app:layout_constraintTop_toBottomOf="@+id/textView6"
+        app:layout_constraintTop_toBottomOf="@+id/tv_tree_title"
         android:layout_marginLeft="@dimen/margin_10"
         app:layout_constraintLeft_toLeftOf="parent"
         android:layout_marginRight="@dimen/margin_10"
@@ -96,7 +97,7 @@
         android:layout_marginTop="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp" />
-    
+
     <TextView
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -111,7 +112,7 @@
         android:layout_marginRight="8dp"
         app:layout_constraintRight_toRightOf="parent"
         android:id="@+id/textView8" />
-    
+
     <EditText
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -125,11 +126,13 @@
         app:layout_constraintLeft_toLeftOf="parent"
         android:layout_marginRight="@dimen/margin_08"
         app:layout_constraintRight_toRightOf="parent"
-        android:id="@+id/editText" />
+        android:imeOptions="actionDone"
+        android:id="@+id/et_new_user"
+        app:layout_constraintHorizontal_bias="0.0" />
 
     <TextView
         android:id="@+id/tv_update_btn"
-        android:layout_width="100dp"
+        android:layout_width="180dp"
         android:layout_height="50dp"
         android:text="@string/update_tree_button_update_title"
         android:gravity="center"
@@ -137,11 +140,13 @@
         android:textSize="@dimen/font_20"
         android:textColor="@color/white_100"
         android:layout_marginTop="@dimen/margin_20"
-        app:layout_constraintTop_toBottomOf="@+id/editText"
-        android:layout_marginLeft="@dimen/margin_60"
+        app:layout_constraintTop_toBottomOf="@+id/et_new_user"
+        android:layout_marginLeft="@dimen/margin_08"
         app:layout_constraintLeft_toLeftOf="parent"
-        fontPath="fonts/FallingSkyBd.otf"/>
-    
+        fontPath="fonts/FallingSkyBd.otf"
+        android:layout_marginRight="8dp"
+        app:layout_constraintRight_toRightOf="parent" />
+
     <TextView
         android:id="@+id/tv_turnoff_btn"
         android:layout_width="120dp"
@@ -152,10 +157,11 @@
         android:textColor="@color/white_100"
         android:gravity="center"
         android:layout_marginTop="@dimen/margin_20"
-        app:layout_constraintTop_toBottomOf="@+id/editText"
+        app:layout_constraintTop_toBottomOf="@+id/et_new_user"
         android:layout_marginRight="@dimen/margin_60"
         app:layout_constraintRight_toRightOf="parent"
-        fontPath="fonts/FallingSkyBd.otf"/>
+        fontPath="fonts/FallingSkyBd.otf"
+        android:visibility="gone"/>
 
 
 </android.support.constraint.ConstraintLayout>

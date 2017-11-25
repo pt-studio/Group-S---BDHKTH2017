@@ -18,12 +18,17 @@ class UserDevice(models.Model):
         ('off', 'off'),
         ('not-used', 'not used')
     )
+    WORKING = 'working'
+    SLEEP = 'sleep'
+    OFF = 'off'
+    NOT_USED = 'not-used'
 
     device_type = models.ForeignKey(DeviceType)
-    user = models.ForeignKey(User)
+    user = models.ForeignKey(User, null=True)
     code_name = models.CharField(max_length=100, unique=True)
     status = models.CharField(max_length=10, choices=STATUS)
     attribute = JSONField(null=True)
+    name = models.CharField(max_length=100, blank=True)
 
     def __str__(self):
         return self.code_name
@@ -45,14 +50,13 @@ class UserDevice(models.Model):
                 }
             self.attribute = attribute
             # save code_name
-            user_device_list = UserDevice.objects.all()
+            user_device_list = UserDevice.objects.filter(device_type__code_name=self.device_type.code_name)
             if user_device_list:
-                max_id = list(reversed(UserDevice.objects.all()))[0].id
+                max_id = max(user_device.id for user_device in user_device_list)
             else:
                 max_id = 1
-            code_name = '{}-{}-{}'.format(self.user.username,
-                                          self.device_type.code_name,
-                                          max_id)
+            code_name = '{}-{}'.format(self.device_type.code_name,
+                                       max_id + 1)
             self.code_name = code_name
         super(UserDevice, self).save(*args, **kwargs)
 

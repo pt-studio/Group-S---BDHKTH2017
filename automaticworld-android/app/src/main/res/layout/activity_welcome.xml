@@ -1,111 +1,146 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<RelativeLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorMainBackground"
-    tools:context="com.example.andrejlee.smartpotui.ui.activities.welcome.WelcomeActivity">
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:clickable="true"
+    android:focusableInTouchMode="true">
 
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="0dp"
-        android:layout_marginRight="0dp"
-        android:layout_marginTop="32dp"
-        android:src="@drawable/logo_smartpot"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:id="@+id/imageView" />
+    <android.support.constraint.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorMainBackground">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/login_screen_title"
-        android:textSize="@dimen/font_30"
-        android:textStyle="bold"
-        android:textColor="@color/white_100"
-        android:layout_marginTop="@dimen/margin_20"
-        android:layout_marginLeft="@dimen/margin_08"
-        app:layout_constraintTop_toBottomOf="@+id/imageView"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        android:id="@+id/textView"
-        fontPath="fonts/FallingSkyBd.otf"/>
-    
-    <EditText
-        android:id="@+id/et_username"
-        android:layout_width="0dp"
-        android:layout_height="50dp"
-        android:hint="@string/login_username_title"
-        android:textColorHint="@color/white_100"
-        android:textColor="@color/white_100"
-        android:textSize="@dimen/font_24"
-        android:layout_marginLeft="@dimen/margin_20"
-        app:layout_constraintLeft_toLeftOf="parent"
-        android:layout_marginRight="@dimen/margin_20"
-        app:layout_constraintRight_toRightOf="parent"
-        android:layout_marginTop="@dimen/margin_60"
-        app:layout_constraintTop_toBottomOf="@+id/textView"
-        app:layout_constraintHorizontal_bias="0.502"
-        android:inputType="text"
-        android:imeOptions="actionNext"
-        fontPath="fonts/FallingSkyBd.otf" />
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:src="@drawable/logo_smartpot"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:id="@+id/imageView" />
 
-    <EditText
-        android:id="@+id/et_password"
-        android:layout_width="0dp"
-        android:layout_height="50dp"
-        android:hint="@string/login_password_title"
-        android:textColorHint="@color/white_100"
-        android:textColor="@color/white_100"
-        android:textSize="@dimen/font_24"
-        android:layout_marginLeft="@dimen/margin_20"
-        app:layout_constraintLeft_toLeftOf="parent"
-        android:layout_marginRight="@dimen/margin_20"
-        app:layout_constraintRight_toRightOf="parent"
-        android:layout_marginTop="@dimen/margin_30"
-        app:layout_constraintTop_toBottomOf="@+id/et_username"
-        app:layout_constraintHorizontal_bias="0.502"
-        android:inputType="textPassword"
-        fontPath="fonts/FallingSkyBd.otf"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/login_screen_title"
+            android:textSize="@dimen/font_30"
+            android:textStyle="bold"
+            android:textColor="@color/white_100"
+            android:layout_marginTop="@dimen/margin_20"
+            android:layout_marginLeft="@dimen/margin_08"
+            app:layout_constraintTop_toBottomOf="@+id/imageView"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:id="@+id/textView"
+            fontPath="fonts/FallingSkyBd.otf"
+            android:layout_marginStart="@dimen/margin_08" />
 
-    <TextView
-        android:id="@+id/tv_login"
-        android:layout_width="180dp"
-        android:layout_height="50dp"
-        android:text="@string/login_button_login_title"
-        android:textStyle="bold"
-        android:textColor="@color/white_100"
-        android:textSize="@dimen/font_24"
-        android:textAlignment="center"
-        android:gravity="center_vertical"
-        android:layout_marginTop="@dimen/margin_20"
-        app:layout_constraintTop_toBottomOf="@+id/et_password"
-        android:layout_marginLeft="8dp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        android:layout_marginRight="8dp"
-        app:layout_constraintRight_toRightOf="parent"
-        fontPath="fonts/FallingSkyBd.otf"/>
+        <EditText
+            android:id="@+id/et_username"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:hint="@string/login_username_title"
+            android:textColorHint="@color/white_100"
+            android:textColor="@color/white_100"
+            android:textSize="@dimen/font_24"
+            android:layout_marginLeft="@dimen/margin_20"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:layout_marginRight="@dimen/margin_20"
+            app:layout_constraintRight_toRightOf="parent"
+            android:layout_marginTop="@dimen/margin_60"
+            app:layout_constraintTop_toBottomOf="@+id/textView"
+            app:layout_constraintHorizontal_bias="0.502"
+            android:inputType="text"
+            android:imeOptions="actionNext"
+            fontPath="fonts/FallingSkyBd.otf"
+            android:layout_marginStart="@dimen/margin_20"
+            android:layout_marginEnd="@dimen/margin_20" />
 
-    <TextView
-        android:id="@+id/tv_forgot"
-        android:layout_width="180dp"
-        android:layout_height="30dp"
-        android:text="@string/login_button_forgot_title"
-        android:textStyle="bold"
-        android:textColor="@color/white_100"
-        android:textSize="@dimen/font_16"
-        android:textAlignment="center"
-        android:gravity="center_vertical"
-        android:layout_marginTop="@dimen/margin_05"
-        app:layout_constraintTop_toBottomOf="@+id/tv_login"
-        android:layout_marginLeft="8dp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        android:layout_marginRight="8dp"
-        app:layout_constraintRight_toRightOf="parent"
-        fontPath="fonts/FallingSkyBd.otf"/>
+        <EditText
+            android:id="@+id/et_password"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:hint="@string/login_password_title"
+            android:textColorHint="@color/white_100"
+            android:textColor="@color/white_100"
+            android:textSize="@dimen/font_24"
+            android:layout_marginLeft="@dimen/margin_20"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:layout_marginRight="@dimen/margin_20"
+            app:layout_constraintRight_toRightOf="parent"
+            android:layout_marginTop="@dimen/margin_30"
+            app:layout_constraintTop_toBottomOf="@+id/et_username"
+            app:layout_constraintHorizontal_bias="0.502"
+            android:inputType="textPassword"
+            fontPath="fonts/FallingSkyBd.otf"
+            android:layout_marginStart="@dimen/margin_20"
+            android:layout_marginEnd="@dimen/margin_20" />
 
-</android.support.constraint.ConstraintLayout>
+        <TextView
+            android:id="@+id/tv_login"
+            android:layout_width="180dp"
+            android:layout_height="50dp"
+            android:text="@string/login_button_login_title"
+            android:textStyle="bold"
+            android:textColor="@color/white_100"
+            android:textSize="@dimen/font_24"
+            android:textAlignment="center"
+            android:gravity="center_vertical"
+            android:layout_marginTop="@dimen/margin_20"
+            app:layout_constraintTop_toBottomOf="@+id/et_password"
+            android:layout_marginLeft="8dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:layout_marginRight="8dp"
+            app:layout_constraintRight_toRightOf="parent"
+            fontPath="fonts/FallingSkyBd.otf"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp" />
+
+        <TextView
+            android:id="@+id/tv_forgot"
+            android:layout_width="180dp"
+            android:layout_height="30dp"
+            android:text="@string/login_button_forgot_title"
+            android:textStyle="bold"
+            android:textColor="@color/white_100"
+            android:textSize="@dimen/font_16"
+            android:textAlignment="center"
+            android:gravity="center_vertical"
+            android:layout_marginTop="@dimen/margin_05"
+            app:layout_constraintTop_toBottomOf="@+id/tv_login"
+            android:layout_marginLeft="8dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:layout_marginRight="8dp"
+            app:layout_constraintRight_toRightOf="parent"
+            fontPath="fonts/FallingSkyBd.otf"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp" />
+
+        <FrameLayout
+            android:id="@+id/splash_container"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@color/colorMainBackground"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:clickable="true">
+
+            <TextView
+                android:id="@+id/tv_logo_splash"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="SMART POT\nAPPLICATION"
+                android:textColor="@color/white_100"
+                android:textSize="@dimen/font_30"
+                android:textStyle="bold" />
+        </FrameLayout>
+    </android.support.constraint.ConstraintLayout>
+</RelativeLayout>
+

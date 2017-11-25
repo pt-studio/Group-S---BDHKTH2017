@@ -24,7 +24,8 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class SmartPotNetworkManager {
 
-    private static String sBaseUrlApi = "http://test-app.p-kc.jp/";
+    private static String sBaseUrlApi = "https://automaticworld.herokuapp.com/";
+    private static String sToken = "Token 795c04d7b892240d364e475ad6ee88bef9f2d31e";
     private static APIService sApiService;
 
     //    PUBLIC METHODS
@@ -40,10 +41,7 @@ public class SmartPotNetworkManager {
         httpClient.interceptors().add(chain -> {
             Request original = chain.request();
             Request request = original.newBuilder()
-                    .header("Accept", "application/json")
-                    .header("x-device-id", DeviceUtils.getDeviceId(MyApplication.getAppContext()))
-                    .header("platform", AppConfig.PLATFORM)
-                    .header("lang", "jp")
+                    .header("Authorization", sToken)
                     .method(original.method(), original.body())
                     .build();
 
@@ -58,8 +56,8 @@ public class SmartPotNetworkManager {
                 .readTimeout(Constants.READ_TIME_OUT, TimeUnit.SECONDS).build();
 
         String baseUrl = sBaseUrlApi;
-        if (!baseUrl.startsWith("http")) {
-            baseUrl = "http://" + baseUrl;
+        if (!baseUrl.startsWith("https")) {
+            baseUrl = "https://" + baseUrl;
         }
 
         Gson gson = new GsonBuilder()

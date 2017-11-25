@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:background="@color/colorMainBackground"
+    tools:parentTag="android.widget.LinearLayout"
+    >
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="@dimen/margin_35"
+        android:layout_height="@dimen/margin_35"
+        android:indeterminate="true"
+        android:indeterminateTint="@color/white_100"
+        android:visibility="gone"
+        />
+
+    <ImageView
+        android:id="@+id/img_update"
+        android:layout_width="@dimen/update_cardcase_size"
+        android:layout_height="@dimen/update_cardcase_size"
+        app:srcCompat="@drawable/ic_circle_arrow_up" />
+
+    <TextView
+        android:id="@+id/txt_update"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/margin_10"
+        android:textColor="@color/white_100"
+        android:textSize="@dimen/font_16"
+        android:text="@string/update_text"
+        fontPath="fonts/FallingSkyBd.otf"/>
+
+</LinearLayout>

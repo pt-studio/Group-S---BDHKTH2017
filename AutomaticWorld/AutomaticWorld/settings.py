@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/1.11/ref/settings/
 """
 
 import os
+import dj_database_url
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -20,11 +21,11 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/1.11/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'l-nqpndj$h^fm&ambd0w#_@b9f4(d$86=^)nv)8_wto#%$742%'
-
+# SECRET_KEY = 'l-nqpndj$h^fm&ambd0w#_@b9f4(d$86=^)nv)8_wto#%$742%'
+SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'l-nqpndj$h^fm&ambd0w#_@b9f4(d$86=^)nv)8_wto#%$742%')
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-
+# DEBUG = True
+DEBUG = bool(os.environ.get('DJANGO_DEBUG', True))
 ALLOWED_HOSTS = ['*']
 
 
@@ -43,10 +44,13 @@ INSTALLED_APPS = [
     # AutomaticWorld app
     'devices',
     'userdevice',
+    'blog',
+    'notifications',
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -79,17 +83,29 @@ WSGI_APPLICATION = 'AutomaticWorld.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#         'NAME': 'autowatering',
+#         'USER': 'leminhson',
+#         'PASSWORD': '@Leminhson1996',
+#         'HOST': 'localhost',
+#         'PORT': ''
+#     }
+# }
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'autowatering',
-        'USER': 'leminhson',
-        'PASSWORD': '@Leminhson1996',
-        'HOST': 'localhost',
-        'PORT': ''
+        'NAME': 'db5j68qvvki5h1',
+        'USER': 'wrhtzijmylrgiy',
+        'PASSWORD': 'fda9e6ad7f61b6cd1f25a981d9e23c0f5a8da137985a3e0b3fc3c31693fa232f',
+        'HOST': 'ec2-54-243-255-57.compute-1.amazonaws.com',
+        'PORT': '5432'
     }
 }
-
+db_from_env = dj_database_url.config(conn_max_age=500)
+DATABASES['default'].update(db_from_env)
 
 # Password validation
 # https://docs.djangoproject.com/en/1.11/ref/settings/#auth-password-validators
@@ -112,10 +128,10 @@ AUTH_PASSWORD_VALIDATORS = [
 
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework.authentication.TokenAuthentication',
         'rest_framework.authentication.BasicAuthentication',
         'rest_framework.authentication.SessionAuthentication',
-        'rest_framework.authentication.TokenAuthentication',
-    )
+    ),
 }
 
 # Internationalization
@@ -136,3 +152,6 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+

@@ -8,8 +8,8 @@ from .models import DeviceType
 
 
 class DeviceTypeViewSet(ModelViewSet):
-    # authentication_classes = (TokenAuthentication,)
-    # permission_classes = (IsAuthenticated, )
+    authentication_classes = (TokenAuthentication,)
+    permission_classes = (IsAuthenticated, )
     serializer_class = DeviceTypeSerializer
 
     def get_queryset(self):

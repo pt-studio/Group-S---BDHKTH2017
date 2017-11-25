@@ -3,10 +3,12 @@ from .views import DeviceTypeViewSet
 
 device_type_list = DeviceTypeViewSet.as_view({
     'get': 'list',
+    'post': 'create',
 })
 
 device_type_detail = DeviceTypeViewSet.as_view({
     'get': 'retrieve',
+    'put': 'partial_update',
 })
 
 

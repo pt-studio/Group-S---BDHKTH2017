@@ -11,13 +11,13 @@
     <scale
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:duration="500"
-        android:fromXScale="0.7"
-        android:fromYScale="0.7"
+        android:fromXScale="0.5"
+        android:fromYScale="0.5"
         android:interpolator="@android:anim/overshoot_interpolator"
         android:pivotX="50%"
-        android:pivotY="30%"
-        android:toXScale="25"
-        android:toYScale="25"
+        android:pivotY="50%"
+        android:toXScale="5"
+        android:toYScale="5"
         >
     </scale>
 
