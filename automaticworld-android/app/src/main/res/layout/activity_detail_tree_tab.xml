@@ -59,7 +59,8 @@
     <TextView
         android:id="@+id/tv_edit_tree"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="0dp"
+        android:layout_weight="1.3"
         android:text="@string/detail_update_btn_title"
         android:textColor="@color/white_100"
         android:textSize="@dimen/font_20"

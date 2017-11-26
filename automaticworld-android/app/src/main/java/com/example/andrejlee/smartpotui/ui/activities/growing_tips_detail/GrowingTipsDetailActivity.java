@@ -5,6 +5,7 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Html;
 import android.text.method.ScrollingMovementMethod;
 import android.view.View;
 import android.widget.ImageView;
@@ -110,5 +111,13 @@ public class GrowingTipsDetailActivity extends BaseDefaultActivity implements Gr
     @OnClick(R.id.iv_back)
     public void onClick(View v){
         closeActivity();
+    }
+
+    @OnClick(R.id.fbtn_share)
+    public void onClickShare(View v){
+        Intent sharingIntent = new Intent(Intent.ACTION_SEND);
+        sharingIntent.setType("text/html");
+        sharingIntent.putExtra(android.content.Intent.EXTRA_TEXT, Html.fromHtml("<p>This is the text that will be shared.</p>"));
+        startActivity(Intent.createChooser(sharingIntent,"Share using"));
     }
 }

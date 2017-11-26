@@ -81,6 +81,7 @@
             fontPath="fonts/FallingSkyBd.otf"/>
 
         <TextView
+            android:id="@+id/tv_change_pass_btn"
             android:layout_width="180dp"
             android:layout_height="50dp"
             android:text="@string/change_pass_button_submit_title"

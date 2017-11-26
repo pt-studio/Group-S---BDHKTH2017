@@ -102,7 +102,7 @@ public class UpdateTreeActivity extends BaseDefaultActivity implements UpdateTre
         });
     }
 
-    @OnClick({R.id.tv_update_btn, R.id.tv_turnoff_btn})
+    @OnClick({R.id.tv_update_btn, R.id.tv_turnoff_btn, R.id.iv_back_update})
     public void onClick(View view){
         switch (view.getId()){
             case R.id.tv_update_btn:
@@ -113,6 +113,9 @@ public class UpdateTreeActivity extends BaseDefaultActivity implements UpdateTre
                 break;
             case R.id.tv_turnoff_btn:
                 showDialogMessageAPI(getResources().getString(R.string.dialog_update_inform_text));
+                break;
+            case R.id.iv_back_update:
+                closeActivity();
                 break;
         }
     }

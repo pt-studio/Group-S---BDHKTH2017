@@ -58,8 +58,8 @@ public class StorageFragmentPresenter extends BasePresenter<StorageFragmentView>
             mMvpView.setAvailAutoContent(String.valueOf(countAvailAuto));
             mMvpView.setUnvailAutoContent(String.valueOf(countUnavailAuto));
 
-            mMvpView.setSmartPB((countAvailPot == countUnavailPot) ? 50 : countAvailPot / (countAvailPot + countUnavailPot));
-            mMvpView.setAutoPB((countAvailAuto == countUnavailAuto) ? 50 : countAvailAuto / (countAvailAuto + countUnavailAuto));
+            mMvpView.setSmartPB((countAvailPot == countUnavailPot) ? 50 : countAvailPot * 100 / (countAvailPot + countUnavailPot));
+            mMvpView.setAutoPB((countAvailAuto == countUnavailAuto) ? 50 : countAvailAuto * 100 / (countAvailAuto + countUnavailAuto));
         }
     }
 

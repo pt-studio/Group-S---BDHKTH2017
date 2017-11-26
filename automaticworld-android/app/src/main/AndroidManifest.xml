@@ -14,6 +14,7 @@
         android:name="com.example.andrejlee.smartpotui.permission.C2D_MESSAGE" />
 
     <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
 
     <application
         android:name=".application.MyApplication"

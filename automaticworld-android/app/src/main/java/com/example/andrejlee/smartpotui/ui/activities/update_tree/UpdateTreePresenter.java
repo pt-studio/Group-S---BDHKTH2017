@@ -28,6 +28,9 @@ public class UpdateTreePresenter extends BasePresenter<UpdateTreeView> {
     public void updateTree(int id, String name, String username, int safeValue) {
         SmartPotFacade.getInstance().updateTree(id, name, username, safeValue)
                 .subscribe(returnValue -> {
+                    if (mMvpView != null){
+                        mMvpView.showDialogMessageAPI("Cập nhật cây thành công!");
+                    }
                 }, throwable -> {
                     if (mMvpView != null) {
                         mMvpView.showDialogMessageAPI(throwable.toString());

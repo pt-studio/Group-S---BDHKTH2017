@@ -2,6 +2,8 @@ package com.example.andrejlee.smartpotui.ui.bases;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.LayoutRes;
 import android.support.v7.widget.Toolbar;
@@ -156,6 +158,8 @@ public abstract class BaseDefaultActivity extends BaseActivity implements View.O
     }
 
     protected void onHeaderContactClick() {
+        Intent intent = new Intent(Intent.ACTION_DIAL, Uri.fromParts("tel", "0967913097", null));
+        startActivity(intent);
     }
 
     protected void onHeaderSearchClick() {
